@@ -8,10 +8,10 @@ I approach engineering problems from a **systems perspective**: data, models, de
 
 ---
 
-## 🔬 Research Interests
+##  Interests
 
 * **Computer Vision for Robotics** (perception, detection, decision-making)
-* **AI for real-world impact**
+* **AI set to earthly use, wherein:**
   * Multi-modal learning** (vision + tabular + text)
   * Transfer Learning & Domain Generalization
 
@@ -39,10 +39,6 @@ I approach engineering problems from a **systems perspective**: data, models, de
 
 
 
- Frontend development for ML-backed applications
-* Flask-based web apps with authentication and dynamic layouts
-* Navigation systems and UI logic for real-world usage
-
 ###🔹Sharespace
 
 * Full-stack Flask web application built as a foundation for ML-backed platforms.
@@ -62,7 +58,7 @@ I approach engineering problems from a **systems perspective**: data, models, de
 
 ## 📫 Connect
 
-* GitHub: *You are here*
+* GitHub: Thou standest here
 * Research interests & collaborations: open to serious, technical discussions
 
 ---

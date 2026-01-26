@@ -44,6 +44,7 @@ I approach engineering problems from a **systems perspective**: data, models, de
 ## 📫 Connect
 
 * GitHub: Thou standest here
+* [LinkedIn](https://www.linkedin.com/in/prosper-ughakpoteni/)
 * Research interests & collaborations: open to serious, technical discussions
 
 ---

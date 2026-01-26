@@ -11,9 +11,9 @@ I approach engineering problems from a **systems perspective**: data, models, de
 ## 🔬 Research Interests
 
 * **Computer Vision for Robotics** (perception, detection, decision-making)
-* **Transfer Learning & Domain Generalization**
-* **Multi-modal learning** (vision + tabular + text)
-* **AI for real-world impact**, especially in healthcare and developing regions
+* **AI for real-world impact**
+  * Multi-modal learning** (vision + tabular + text)
+  * Transfer Learning & Domain Generalization
 
 ---
 
@@ -37,11 +37,18 @@ I approach engineering problems from a **systems perspective**: data, models, de
 
 ---
 
-### 🔹Sharespace
 
-* Frontend development for ML-backed applications
+
+ Frontend development for ML-backed applications
 * Flask-based web apps with authentication and dynamic layouts
 * Navigation systems and UI logic for real-world usage
+
+###🔹Sharespace
+
+* Full-stack Flask web application built as a foundation for ML-backed platforms.
+* Implemented with authentication-aware layouts, separating pre-login and post-login views to avoid routing conflicts and UI leakage
+* Uses state-dependent rendering to coordinate frontend navigation with backend session logic, supporting both section-based navigation and form-driven pages
+* Designed for maintainability through clear separation of templates, route handlers, and static assets, with extensibility in mind for future ML integration
 
 ---
 
@@ -49,7 +56,7 @@ I approach engineering problems from a **systems perspective**: data, models, de
 
 * Writing **research-grade papers** in AI & robotics
 * Designing **realistic, implementable architectures** 
-* Completing the Bsc.in Artificial Intelligence
+* Completing the B.Sc.in Artificial Intelligence
 
 ---
 

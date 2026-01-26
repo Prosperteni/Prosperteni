@@ -20,7 +20,7 @@ I approach engineering problems from a **systems perspective**: data, models, de
 
 ## 📊 Featured Projects
 
-### 🔹 CardioTransferX: Cross-Dataset Transfer Learning with Explainable AI for Heart Disease Prediction(https://github.com/Prosperteni/CardioTransferX)
+[🔹 CardioTransferX: Cross-Dataset Transfer Learning with Explainable AI for Heart Disease Prediction](https://github.com/Prosperteni/CardioTransferX)
 
 > *A research-driven exploration of transfer learning and interpretability across heterogeneous medical datasets.*
 
@@ -28,7 +28,7 @@ I approach engineering problems from a **systems perspective**: data, models, de
 
 
 
-###🔹Sharespace(https://github.com/Prosperteni/ShareSpace)
+[🔹Sharespace](https://github.com/Prosperteni/ShareSpace)
 
 > *A foundational Flask system designed to support ML-backed applications under real-world constraints.*
 ---

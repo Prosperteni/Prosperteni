@@ -18,7 +18,7 @@ I approach engineering problems from a **systems perspective**: data, models, de
 ---
 
 
-## 📊 Featured Projects
+##  Featured Projects
 
 [CardioTransferX: Cross-Dataset Transfer Learning with Explainable AI for Heart Disease Prediction](https://github.com/Prosperteni/CardioTransferX)
 
@@ -33,7 +33,7 @@ I approach engineering problems from a **systems perspective**: data, models, de
 > *A foundational Flask system designed to support ML-backed applications under real-world constraints.*
 ---
 
-## 🧪 Current Focus
+## Current Focus
 
 * Writing **research-grade papers** in AI & robotics
 * Designing **realistic, implementable architectures** 
@@ -41,7 +41,7 @@ I approach engineering problems from a **systems perspective**: data, models, de
 
 ---
 
-## 📫 Connect
+## Connect
 
 * GitHub: Thou standest here
 * [LinkedIn](https://www.linkedin.com/in/prosper-ughakpoteni/)

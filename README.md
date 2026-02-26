@@ -12,7 +12,7 @@ I approach engineering problems from a **systems perspective**: data, models, de
 
 * **Computer Vision for Robotics** (perception, detection, decision-making)
 * **AI set to earthly use, wherein:**
-  * Multi-modal learning** (vision + tabular + text)
+  * Multi-modal learning (vision + tabular + text)
   * Transfer Learning & Domain Generalization
 
 ---

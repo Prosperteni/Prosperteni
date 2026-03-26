@@ -1,769 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YOUR NAME — Personal Site</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prosper — AI & Computer Vision Engineer</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
-    :root {
-      --bg: #080b10;
-      --bg2: #0d1117;
-      --surface: #111820;
-      --border: #1e2d3d;
-      --accent: #00e5ff;
-      --accent2: #7b61ff;
-      --accent3: #39ff14;
-      --text: #c9d8e8;
-      --muted: #4a6075;
-      --heading: #eaf4ff;
-      --mono: 'Share Tech Mono', monospace;
-      --sans: 'Syne', sans-serif;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      overflow-x: hidden;
-      cursor: none;
+      background-color: #0b0f14;
+      color: #d6e2f0;
+      font-family: 'Segoe UI', sans-serif;
     }
-
-    /* Custom cursor */
-    .cursor {
-      position: fixed;
-      width: 10px; height: 10px;
-      background: var(--accent);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: transform 0.05s, width 0.2s, height 0.2s, background 0.2s;
-      box-shadow: 0 0 12px var(--accent);
+    .accent { color: #00e5ff; }
+    .section { padding: 80px 0; }
+    .card {
+      background-color: #111820;
+      border: 1px solid #1e2d3d;
     }
-    .cursor-ring {
-      position: fixed;
-      width: 36px; height: 36px;
-      border: 1px solid var(--accent);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9998;
-      transform: translate(-50%, -50%);
-      transition: transform 0.12s ease, width 0.2s, height 0.2s;
-      opacity: 0.5;
+    .card:hover {
+      border-color: #00e5ff;
+      transform: translateY(-5px);
+      transition: 0.3s;
     }
-
-    /* Grid background */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* Noise overlay */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.4;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.25rem 3rem;
-      background: rgba(8,11,16,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-logo {
-      font-family: var(--mono);
-      font-size: 1rem;
-      color: var(--accent);
-      letter-spacing: 0.08em;
-      text-decoration: none;
-    }
-    .nav-logo span { color: var(--muted); }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-    .nav-links a {
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      color: var(--muted);
-      text-decoration: none;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-      position: relative;
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px; left: 0;
-      width: 0; height: 1px;
-      background: var(--accent);
-      transition: width 0.3s;
-    }
-    .nav-links a:hover { color: var(--accent); }
-    .nav-links a:hover::after { width: 100%; }
-
-    /* ── SECTIONS ── */
-    section {
-      position: relative;
-      z-index: 1;
-      min-height: 100vh;
-      padding: 8rem 3rem 5rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .section-label {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--accent);
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      opacity: 0;
-      animation: fadeUp 0.6s forwards;
-    }
-
-    h1, h2 {
-      font-family: var(--sans);
-      font-weight: 800;
-      color: var(--heading);
-      line-height: 1.05;
-    }
-
-    /* ── HERO ── */
-    #hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-top: 10rem;
-      gap: 1.5rem;
-    }
-
-    .hero-greeting {
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      color: var(--accent3);
-      letter-spacing: 0.15em;
-      opacity: 0;
-      animation: fadeUp 0.5s 0.2s forwards;
-    }
-
-    .hero-name {
-      font-size: clamp(3rem, 8vw, 6.5rem);
-      font-weight: 800;
-      color: var(--heading);
-      opacity: 0;
-      animation: fadeUp 0.6s 0.35s forwards;
-      line-height: 1;
-    }
-    .hero-name .accent { color: var(--accent); }
-
-    .hero-title {
-      font-family: var(--mono);
-      font-size: clamp(1rem, 2vw, 1.3rem);
-      color: var(--muted);
-      opacity: 0;
-      animation: fadeUp 0.6s 0.5s forwards;
-    }
-    .hero-title .typing::after {
-      content: '|';
-      color: var(--accent);
-      animation: blink 1s step-end infinite;
-    }
-
-    .hero-desc {
-      max-width: 520px;
-      line-height: 1.7;
-      color: var(--text);
-      font-size: 1rem;
-      opacity: 0;
-      animation: fadeUp 0.6s 0.65s forwards;
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 1rem;
-      margin-top: 0.5rem;
-      opacity: 0;
-      animation: fadeUp 0.6s 0.8s forwards;
-    }
-
-    .btn {
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.75rem 1.75rem;
-      border-radius: 2px;
-      cursor: none;
-      text-decoration: none;
-      transition: all 0.25s;
-    }
-    .btn-primary {
-      background: var(--accent);
+    .btn-accent {
+      background-color: #00e5ff;
       color: #000;
-      border: 1px solid var(--accent);
+      border: none;
     }
-    .btn-primary:hover {
+    .btn-accent:hover {
       background: transparent;
-      color: var(--accent);
-      box-shadow: 0 0 20px rgba(0,229,255,0.25);
-    }
-    .btn-secondary {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-    .btn-secondary:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* Glowing orbs */
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.12;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .orb-1 { width: 500px; height: 500px; background: var(--accent); top: 5%; right: -100px; }
-    .orb-2 { width: 350px; height: 350px; background: var(--accent2); top: 40%; right: 10%; }
-
-    /* ── ABOUT ── */
-    #about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 5rem;
-    }
-
-    .about-text h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1.5rem; }
-    .about-text p { line-height: 1.8; color: var(--text); margin-bottom: 1rem; font-size: 0.97rem; }
-
-    .about-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-    .stat-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1.5rem;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .stat-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-4px);
-    }
-    .stat-number {
-      font-family: var(--mono);
-      font-size: 2.5rem;
-      color: var(--accent);
-      display: block;
-      margin-bottom: 0.3rem;
-    }
-    .stat-label {
-      font-size: 0.8rem;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    /* ── PROJECTS ── */
-    #projects { min-height: auto; padding-bottom: 8rem; }
-    #projects h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 3rem; }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .project-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 2rem;
-      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s;
-    }
-    .project-card:hover::before { transform: scaleX(1); }
-    .project-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    }
-
-    .project-tag {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      color: var(--accent3);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-    }
-    .project-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--heading);
-      margin-bottom: 0.75rem;
-    }
-    .project-desc {
-      font-size: 0.88rem;
-      color: var(--text);
-      line-height: 1.65;
-      margin-bottom: 1.5rem;
-    }
-    .project-tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .tech-pill {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      background: rgba(0,229,255,0.06);
-      color: var(--accent);
-      border: 1px solid rgba(0,229,255,0.2);
-      border-radius: 2px;
-      padding: 0.25rem 0.6rem;
-      letter-spacing: 0.08em;
-    }
-    .project-links { display: flex; gap: 1rem; }
-    .project-link {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--muted);
-      text-decoration: none;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .project-link:hover { color: var(--accent); }
-
-    /* ── BLOG ── */
-    #blog { min-height: auto; padding-bottom: 8rem; }
-    #blog h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 3rem; }
-
-    .blog-list { display: flex; flex-direction: column; gap: 1px; }
-
-    .blog-item {
-      display: grid;
-      grid-template-columns: 120px 1fr auto;
-      align-items: center;
-      gap: 2rem;
-      padding: 1.5rem 0;
-      border-bottom: 1px solid var(--border);
-      text-decoration: none;
-      transition: padding-left 0.3s;
-    }
-    .blog-item:hover { padding-left: 1rem; }
-    .blog-item:hover .blog-title { color: var(--accent); }
-
-    .blog-date {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-    }
-    .blog-title {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--heading);
-      transition: color 0.2s;
-    }
-    .blog-tag {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      color: var(--accent2);
-      border: 1px solid rgba(123,97,255,0.3);
-      border-radius: 2px;
-      padding: 0.2rem 0.5rem;
-      white-space: nowrap;
-    }
-
-    /* ── CONTACT ── */
-    #contact {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      align-items: center;
-    }
-    #contact h2 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; }
-    #contact p { color: var(--text); max-width: 480px; line-height: 1.7; margin-bottom: 3rem; }
-
-    .contact-links {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      color: var(--muted);
-      text-decoration: none;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      padding: 0.75rem 1.5rem;
-      transition: all 0.25s;
-    }
-    .contact-link:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-      box-shadow: 0 0 20px rgba(0,229,255,0.1);
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 2rem;
-      border-top: 1px solid var(--border);
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-    }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s, transform 0.7s;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { gap: 1.2rem; }
-      section { padding: 6rem 1.5rem 4rem; }
-      #about { grid-template-columns: 1fr; gap: 3rem; }
-      .blog-item { grid-template-columns: 1fr; gap: 0.5rem; }
-      .blog-tag { display: none; }
-      .orb-1, .orb-2 { display: none; }
+      color: #00e5ff;
+      border: 1px solid #00e5ff;
     }
   </style>
 </head>
 <body>
 
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Prosper</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-  <!-- NAV -->
-  <nav>
-    <a href="#hero" class="nav-logo">&lt;<span>YourName</span> /&gt;</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#blog">Blog</a></li>
-      <li><a href="#contact">Contact</a></li>
+<!-- HERO -->
+<section class="section text-center" style="margin-top:80px;">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Prosper</h1>
+    <p class="lead accent">AI Engineer • Computer Vision • Robotics</p>
+    <p class="col-md-8 mx-auto">
+      I design and build intelligent systems using machine learning and computer vision.
+      My work focuses on solving real-world problems through data-driven models,
+      with an emphasis on performance, generalization, and explainability.
+    </p>
+    <a href="#projects" class="btn btn-accent m-2">View Projects</a>
+    <a href="#contact" class="btn btn-outline-light m-2">Contact Me</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container">
+    <h2 class="mb-4">About Me</h2>
+    <p>
+      I am an Artificial Intelligence student with a strong focus on machine learning,
+      computer vision, and robotics. I have experience building models using tools like
+      XGBoost, TabNet, YOLO, and OpenCV, and applying them to real-world datasets.
+    </p>
+    <p>
+      My primary interest lies in developing systems that generalize well across
+      different datasets and environments, with particular attention to model
+      interpretability using Explainable AI techniques.
+    </p>
+    <ul>
+      <li>Experience in robotics competitions (World Robot Olympiad)</li>
+      <li>Built ML models for healthcare prediction tasks</li>
+      <li>Strong foundation in data analysis and model evaluation</li>
     </ul>
-  </nav>
+  </div>
+</section>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <p class="hero-greeting">// Hello, world</p>
-    <h1 class="hero-name">Your <span class="accent">Name</span><br>Here.</h1>
-    <p class="hero-title"><span class="typing">Developer &amp; Creator</span></p>
-    <p class="hero-desc">
-      I build things for the web. Passionate about clean code, thoughtful design,
-      and solving interesting problems. Welcome to my corner of the internet.
-    </p>
-    <div class="hero-cta">
-      <a href="#projects" class="btn btn-primary">View Projects</a>
-      <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-    </div>
-  </section>
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <div class="container">
+    <h2 class="mb-5">Projects</h2>
+    <div class="row g-4">
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="about-text reveal">
-      <p class="section-label">// 01. about</p>
-      <h2>A little about <span style="color:var(--accent)">me.</span></h2>
-      <p>
-        Hi! I'm a developer based in [Your City]. I love working at the intersection
-        of technology and creativity — building tools and experiences that people
-        actually enjoy using.
-      </p>
-
-
-
-      <p>
-        When I'm not coding, you'll find me exploring new technologies, writing
-        about what I've learned, or [your hobbies here].
-
-      </p>
-
-
-    </div>
-    <div class="about-stats reveal">
-      <div class="stat-card">
-        <span class="stat-number">3+</span>
-        <span class="stat-label">Years Experience</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-number">20+</span>
-        <span class="stat-label">Projects Built</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-number">10+</span>
-        <span class="stat-label">Happy Clients</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-number">∞</span>
-        <span class="stat-label">Cups of Coffee</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <p class="section-label reveal">// 02. projects</p>
-    <h2 class="reveal">Things I've <span style="color:var(--accent)">built.</span></h2>
-    <div class="projects-grid" style="margin-top:3rem">
-
-      <div class="project-card reveal">
-        <p class="project-tag">Featured Project</p>
-        <h3 class="project-title">Project Alpha</h3>
-        <p class="project-desc">A short description of what this project does and the problem it solves. Keep it concise but informative.</p>
-        <div class="project-tech">
-          <span class="tech-pill">React</span>
-          <span class="tech-pill">Node.js</span>
-          <span class="tech-pill">PostgreSQL</span>
-        </div>
-        <div class="project-links">
-          <a href="#" class="project-link">↗ Live Demo</a>
-          <a href="#" class="project-link">⌥ GitHub</a>
+      <div class="col-md-6">
+        <div class="card p-4 h-100">
+          <h5 class="card-title">Heart Disease Prediction (Transfer Learning)</h5>
+          <p>
+            Developed a cross-dataset transfer learning framework using XGBoost and TabNet
+            to improve generalization across heterogeneous medical datasets.
+          </p>
+          <ul>
+            <li>Achieved strong ROC-AUC performance after fine-tuning</li>
+            <li>Handled feature distribution mismatch</li>
+            <li>Integrated SHAP for explainability</li>
+          </ul>
+          <p><strong>Tech:</strong> Python, XGBoost, TabNet, SHAP</p>
         </div>
       </div>
 
-      <div class="project-card reveal">
-        <p class="project-tag">Open Source</p>
-        <h3 class="project-title">Project Beta</h3>
-        <p class="project-desc">Another project description here. What did you build? What was interesting about it? What did you learn?</p>
-        <div class="project-tech">
-          <span class="tech-pill">Python</span>
-          <span class="tech-pill">FastAPI</span>
-          <span class="tech-pill">Docker</span>
-        </div>
-        <div class="project-links">
-          <a href="#" class="project-link">↗ Live Demo</a>
-          <a href="#" class="project-link">⌥ GitHub</a>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <p class="project-tag">Side Project</p>
-        <h3 class="project-title">Project Gamma</h3>
-        <p class="project-desc">What makes this project unique? Highlight the most interesting technical challenge you solved.</p>
-        <div class="project-tech">
-          <span class="tech-pill">TypeScript</span>
-          <span class="tech-pill">Next.js</span>
-          <span class="tech-pill">Tailwind</span>
-        </div>
-        <div class="project-links">
-          <a href="#" class="project-link">↗ Live Demo</a>
-          <a href="#" class="project-link">⌥ GitHub</a>
+      <div class="col-md-6">
+        <div class="card p-4 h-100">
+          <h5 class="card-title">Object Detection System</h5>
+          <p>
+            Built a real-time object detection system using YOLO and OpenCV
+            for visual recognition tasks.
+          </p>
+          <ul>
+            <li>Optimized detection speed vs accuracy trade-off</li>
+            <li>Applied in robotics scenarios</li>
+          </ul>
+          <p><strong>Tech:</strong> YOLO, OpenCV, Python</p>
         </div>
       </div>
 
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- BLOG -->
-  <section id="blog">
-    <p class="section-label reveal">// 03. blog</p>
-    <h2 class="reveal">What I've been <span style="color:var(--accent)">writing.</span></h2>
-    <div class="blog-list" style="margin-top:3rem">
-
-      <a href="#" class="blog-item reveal">
-        <span class="blog-date">Mar 2026</span>
-        <span class="blog-title">How I Built My Personal Site with GitHub Pages</span>
-        <span class="blog-tag">Tutorial</span>
-      </a>
-      <a href="#" class="blog-item reveal">
-        <span class="blog-date">Feb 2026</span>
-        <span class="blog-title">Lessons from Shipping My First Open Source Library</span>
-        <span class="blog-tag">Dev</span>
-      </a>
-      <a href="#" class="blog-item reveal">
-        <span class="blog-date">Jan 2026</span>
-        <span class="blog-title">The Tools I Use Every Day as a Developer</span>
-        <span class="blog-tag">Tooling</span>
-      </a>
-      <a href="#" class="blog-item reveal">
-        <span class="blog-date">Dec 2025</span>
-        <span class="blog-title">Understanding Async/Await Without the Magic</span>
-        <span class="blog-tag">Deep Dive</span>
-      </a>
-
-
-
-
-
-
-
-
-
+<!-- CONTACT -->
+<section id="contact" class="section text-center">
+  <div class="container">
+    <h2>Contact</h2>
+    <p>Interested in collaboration or internships? Reach out.</p>
+    <a href="mailto:your@email.com" class="btn btn-accent">Email Me</a>
+    <div class="mt-3">
+      <a href="#" class="text-light me-3">GitHub</a>
+      <a href="#" class="text-light me-3">LinkedIn</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <p class="section-label reveal">// 04. contact</p>
-    <h2 class="reveal">Let's <span style="color:var(--accent)">connect.</span></h2>
-    <p class="reveal">
-      Whether you have a project in mind, a question, or just want to say hi —
-      my inbox is always open.
-    </p>
-    <div class="contact-links reveal">
-      <a href="mailto:you@email.com" class="contact-link">✉ Email</a>
-      <a href="https://github.com/yourusername" class="contact-link">⌥ GitHub</a>
-      <a href="https://linkedin.com/in/yourprofile" class="contact-link">in LinkedIn</a>
-      <a href="https://twitter.com/yourhandle" class="contact-link">𝕏 Twitter</a>
-    </div>
-  </section>
+<footer class="text-center p-3">
+  <small>© 2026 Prosper</small>
+</footer>
 
-  <footer>
-    <p>Designed &amp; built by <span style="color:var(--accent)">Your Name</span> — 2026</p>
-  </footer>
-
-  <script>
-    // Custom cursor
-    const cursor = document.getElementById('cursor');
-    const ring = document.getElementById('cursorRing');
-    let mx = 0, my = 0, rx = 0, ry = 0;
-
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      cursor.style.left = mx + 'px';
-      cursor.style.top = my + 'px';
-    });
-
-    (function animate() {
-      rx += (mx - rx) * 0.12;
-      ry += (my - ry) * 0.12;
-      ring.style.left = rx + 'px';
-      ring.style.top = ry + 'px';
-      requestAnimationFrame(animate);
-    })();
-
-    document.querySelectorAll('a, button').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursor.style.width = '6px';
-        cursor.style.height = '6px';
-        ring.style.width = '50px';
-        ring.style.height = '50px';
-      });
-      el.addEventListener('mouseleave', () => {
-        cursor.style.width = '10px';
-        cursor.style.height = '10px';
-        ring.style.width = '36px';
-        ring.style.height = '36px';
-      });
-    });
-
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-          }, (entry.target.dataset.delay || 0));
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    reveals.forEach((el, i) => {
-      el.dataset.delay = (i % 4) * 80;
-      observer.observe(el);
-    });
-
-    // Typing animation
-    const titles = ['Developer & Creator', 'Problem Solver', 'Open Source Fan', 'Coffee Enthusiast'];
-    let ti = 0, ci = 0, deleting = false;
-    const typingEl = document.querySelector('.typing');
-
-    function type() {
-      const current = titles[ti];
-      if (!deleting) {
-        typingEl.textContent = current.slice(0, ++ci);
-        if (ci === current.length) { deleting = true; setTimeout(type, 2000); return; }
-      } else {
-        typingEl.textContent = current.slice(0, --ci);
-        if (ci === 0) { deleting = false; ti = (ti + 1) % titles.length; }
-      }
-      setTimeout(type, deleting ? 40 : 80);
-    }
-    setTimeout(type, 1200);
-  </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

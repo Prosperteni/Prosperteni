@@ -1,9 +1,9 @@
 # 第 09 讲：比特币核心节点
 
-![status](https://img.shields.io/badge/%E7%8A%B6%E6%80%81-%E5%B7%B2%E5%AE%8C%E6%88%90-success)
-![author](https://img.shields.io/badge/%E4%BD%9C%E8%80%85-beihaili-blue)
-![date](https://img.shields.io/badge/%E6%97%A5%E6%9C%9F-2025--06-orange)
-![difficulty](https://img.shields.io/badge/%E9%9A%BE%E5%BA%A6-%E4%B8%AD%E7%BA%A7-yellow)
+![status](https://img.shields.io/badge/ 状态 - 已完成 - success)
+![author](https://img.shields.io/badge/ 作者 - beihaili-blue)
+![date](https://img.shields.io/badge/ 日期 - 2025--06-orange)
+![difficulty](https://img.shields.io/badge/ 难度 - 中级 - yellow)
 
 > 💡 自学入门 `Web3` 不是一件容易的事，作为一个刚刚入门 Web3 的新人，梳理一下最简单直观的 `Web3` 小白入门教程。整合开源社区优质资源，为大家从入门到精通 Web3 指路。每周更新 1-3 讲。
 > 

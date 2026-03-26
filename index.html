@@ -1,156 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Prosper — AI & Computer Vision Engineer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>Portfolio</title>
 
-  <style>
-    body {
-      background-color: #0b0f14;
-      color: #d6e2f0;
-      font-family: 'Segoe UI', sans-serif;
-    }
-    .accent { color: #00e5ff; }
-    .section { padding: 80px 0; }
-    .card {
-      background-color: #111820;
-      border: 1px solid #1e2d3d;
-    }
-    .card:hover {
-      border-color: #00e5ff;
-      transform: translateY(-5px);
-      transition: 0.3s;
-    }
-    .btn-accent {
-      background-color: #00e5ff;
-      color: #000;
-      border: none;
-    }
-    .btn-accent:hover {
-      background: transparent;
-      color: #00e5ff;
-      border: 1px solid #00e5ff;
-    }
-  </style>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: 'Syne', sans-serif;
+}
+</style>
+
 </head>
-<body>
+
+<body class="bg-slate-950 text-gray-200">
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="#">Prosper</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-      </ul>
+<nav class="fixed w-full bg-slate-900/90 backdrop-blur border-b border-slate-800 z-50">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+
+    <a href="#" class="text-cyan-400 font-bold text-lg">
+      &lt;YourName /&gt;
+    </a>
+
+    <div class="space-x-8 text-sm text-gray-400 hidden md:block">
+      <a href="#about" class="hover:text-cyan-400">About</a>
+      <a href="#projects" class="hover:text-cyan-400">Projects</a>
+      <a href="#blog" class="hover:text-cyan-400">Blog</a>
+      <a href="#contact" class="hover:text-cyan-400">Contact</a>
     </div>
+
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="section text-center" style="margin-top:80px;">
-  <div class="container">
-    <h1 class="display-4 fw-bold">Prosper</h1>
-    <p class="lead accent">AI Engineer • Computer Vision • Robotics</p>
-    <p class="col-md-8 mx-auto">
-      I design and build intelligent systems using machine learning and computer vision.
-      My work focuses on solving real-world problems through data-driven models,
-      with an emphasis on performance, generalization, and explainability.
-    </p>
-    <a href="#projects" class="btn btn-accent m-2">View Projects</a>
-    <a href="#contact" class="btn btn-outline-light m-2">Contact Me</a>
-  </div>
+<section class="min-h-screen flex items-center">
+
+<div class="max-w-6xl mx-auto px-6">
+
+<p class="text-green-400 text-sm mb-4">// Hello world</p>
+
+<h1 class="text-5xl md:text-7xl font-extrabold leading-tight">
+Your <span class="text-cyan-400">Name</span>
+</h1>
+
+<p class="mt-4 text-lg text-gray-400">
+AI Developer • Robotics • Computer Vision
+</p>
+
+<p class="mt-6 max-w-xl text-gray-400">
+I design and build intelligent systems with a focus on real-world applications,
+clean architecture, and performance.
+</p>
+
+<div class="mt-8 space-x-4">
+
+<a href="#projects"
+class="bg-cyan-400 text-black px-6 py-3 font-medium hover:bg-cyan-300 transition">
+View Projects
+</a>
+
+<a href="#contact"
+class="border border-gray-700 px-6 py-3 hover:border-cyan-400 hover:text-cyan-400 transition">
+Contact Me
+</a>
+
+</div>
+
+</div>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="section">
-  <div class="container">
-    <h2 class="mb-4">About Me</h2>
-    <p>
-      I am an Artificial Intelligence student with a strong focus on machine learning,
-      computer vision, and robotics. I have experience building models using tools like
-      XGBoost, TabNet, YOLO, and OpenCV, and applying them to real-world datasets.
-    </p>
-    <p>
-      My primary interest lies in developing systems that generalize well across
-      different datasets and environments, with particular attention to model
-      interpretability using Explainable AI techniques.
-    </p>
-    <ul>
-      <li>Experience in robotics competitions (World Robot Olympiad)</li>
-      <li>Built ML models for healthcare prediction tasks</li>
-      <li>Strong foundation in data analysis and model evaluation</li>
-    </ul>
-  </div>
+<section id="about" class="py-24 bg-slate-900">
+
+<div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12">
+
+<div>
+
+<p class="text-cyan-400 text-sm mb-3">// About</p>
+
+<h2 class="text-4xl font-bold mb-6">
+About <span class="text-cyan-400">Me</span>
+</h2>
+
+<p class="text-gray-400 mb-4">
+I am an AI and robotics-focused developer with experience in computer vision,
+machine learning, and web systems.
+</p>
+
+<p class="text-gray-400">
+I focus on building practical systems that solve real-world problems
+rather than just theoretical models.
+</p>
+
+</div>
+
+<div class="grid grid-cols-2 gap-6">
+
+<div class="border border-slate-800 p-6">
+<p class="text-3xl text-cyan-400 font-bold">3+</p>
+<p class="text-sm text-gray-500">Years Coding</p>
+</div>
+
+<div class="border border-slate-800 p-6">
+<p class="text-3xl text-cyan-400 font-bold">20+</p>
+<p class="text-sm text-gray-500">Projects</p>
+</div>
+
+<div class="border border-slate-800 p-6">
+<p class="text-3xl text-cyan-400 font-bold">10+</p>
+<p class="text-sm text-gray-500">Technologies</p>
+</div>
+
+<div class="border border-slate-800 p-6">
+<p class="text-3xl text-cyan-400 font-bold">∞</p>
+<p class="text-sm text-gray-500">Curiosity</p>
+</div>
+
+</div>
+
+</div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="section">
-  <div class="container">
-    <h2 class="mb-5">Projects</h2>
-    <div class="row g-4">
+<section id="projects" class="py-24">
 
-      <div class="col-md-6">
-        <div class="card p-4 h-100">
-          <h5 class="card-title">Heart Disease Prediction (Transfer Learning)</h5>
-          <p>
-            Developed a cross-dataset transfer learning framework using XGBoost and TabNet
-            to improve generalization across heterogeneous medical datasets.
-          </p>
-          <ul>
-            <li>Achieved strong ROC-AUC performance after fine-tuning</li>
-            <li>Handled feature distribution mismatch</li>
-            <li>Integrated SHAP for explainability</li>
-          </ul>
-          <p><strong>Tech:</strong> Python, XGBoost, TabNet, SHAP</p>
-        </div>
-      </div>
+<div class="max-w-6xl mx-auto px-6">
 
-      <div class="col-md-6">
-        <div class="card p-4 h-100">
-          <h5 class="card-title">Object Detection System</h5>
-          <p>
-            Built a real-time object detection system using YOLO and OpenCV
-            for visual recognition tasks.
-          </p>
-          <ul>
-            <li>Optimized detection speed vs accuracy trade-off</li>
-            <li>Applied in robotics scenarios</li>
-          </ul>
-          <p><strong>Tech:</strong> YOLO, OpenCV, Python</p>
-        </div>
-      </div>
+<p class="text-cyan-400 text-sm mb-3">// Projects</p>
 
-    </div>
-  </div>
+<h2 class="text-4xl font-bold mb-12">
+My <span class="text-cyan-400">Work</span>
+</h2>
+
+<div class="grid md:grid-cols-3 gap-8">
+
+<div class="border border-slate-800 p-6 hover:border-cyan-400 transition">
+
+<h3 class="text-xl font-semibold mb-2">
+Heart Disease AI
+</h3>
+
+<p class="text-gray-400 text-sm mb-4">
+Transfer learning model for predicting heart disease with explainability.
+</p>
+
+<p class="text-xs text-gray-500 mb-4">
+Python • XGBoost • SHAP
+</p>
+
+<a href="#" class="text-cyan-400 text-sm">
+View →
+</a>
+
+</div>
+
+<div class="border border-slate-800 p-6 hover:border-cyan-400 transition">
+
+<h3 class="text-xl font-semibold mb-2">
+YOLO Vision System
+</h3>
+
+<p class="text-gray-400 text-sm mb-4">
+Real-time object detection system using YOLO and OpenCV.
+</p>
+
+<p class="text-xs text-gray-500 mb-4">
+Python • OpenCV • YOLO
+</p>
+
+<a href="#" class="text-cyan-400 text-sm">
+View →
+</a>
+
+</div>
+
+<div class="border border-slate-800 p-6 hover:border-cyan-400 transition">
+
+<h3 class="text-xl font-semibold mb-2">
+Web Platform
+</h3>
+
+<p class="text-gray-400 text-sm mb-4">
+Full-stack web app with authentication and dynamic UI.
+</p>
+
+<p class="text-xs text-gray-500 mb-4">
+React • Flask • SQL
+</p>
+
+<a href="#" class="text-cyan-400 text-sm">
+View →
+</a>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- BLOG -->
+<section id="blog" class="py-24 bg-slate-900">
+
+<div class="max-w-4xl mx-auto px-6">
+
+<p class="text-cyan-400 text-sm mb-3">// Blog</p>
+
+<h2 class="text-4xl font-bold mb-12">
+Insights & <span class="text-cyan-400">Notes</span>
+</h2>
+
+<div class="space-y-6">
+
+<div class="border-b border-slate-800 pb-4">
+<p class="text-sm text-gray-500">March 2026</p>
+<a href="#" class="text-lg hover:text-cyan-400">
+Building Transfer Learning Systems
+</a>
+</div>
+
+<div class="border-b border-slate-800 pb-4">
+<p class="text-sm text-gray-500">February 2026</p>
+<a href="#" class="text-lg hover:text-cyan-400">
+Understanding YOLO Architectures
+</a>
+</div>
+
+</div>
+
+</div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="section text-center">
-  <div class="container">
-    <h2>Contact</h2>
-    <p>Interested in collaboration or internships? Reach out.</p>
-    <a href="mailto:your@email.com" class="btn btn-accent">Email Me</a>
-    <div class="mt-3">
-      <a href="#" class="text-light me-3">GitHub</a>
-      <a href="#" class="text-light me-3">LinkedIn</a>
-    </div>
-  </div>
+<section id="contact" class="py-24 text-center">
+
+<div class="max-w-2xl mx-auto px-6">
+
+<h2 class="text-5xl font-bold mb-6">
+Let's <span class="text-cyan-400">Connect</span>
+</h2>
+
+<p class="text-gray-400 mb-10">
+Interested in AI, robotics, or collaboration? Reach out.
+</p>
+
+<a href="mailto:your@email.com"
+class="bg-cyan-400 text-black px-8 py-4 font-medium hover:bg-cyan-300 transition">
+Send Email
+</a>
+
+</div>
 </section>
 
-<footer class="text-center p-3">
-  <small>© 2026 Prosper</small>
+<!-- FOOTER -->
+<footer class="border-t border-slate-800 py-6 text-center text-sm text-gray-500">
+
+Built with Tailwind • Your Name
+
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

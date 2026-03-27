@@ -1,350 +1,620 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Prosper Ughakpoteni - Portfolio</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
-
-<style>
-body {
-  font-family: 'Syne', sans-serif;
-}
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prosper Ughakpoteni - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background: #f9f9f9;
+            color: #222;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Merriweather', serif;
+            line-height: 1.3;
+            margin-top: 0.5em;
+            margin-bottom: 0.25em;
+        }
+        h1 {
+            font-size: 2em;
+            border-bottom: 2px solid #a0a0a0;
+            padding-bottom: 0.25em;
+        }
+        h2 {
+            font-size: 1.5em;
+            border-bottom: 1px solid #d0d0d0;
+            padding-bottom: 0.3em;
+            margin-top: 1.2em;
+        }
+        h3 {
+            font-size: 1.2em;
+        }
+        .sidebar {
+            background: #f0f0f0;
+            border-right: 1px solid #d0d0d0;
+            padding: 1.5em 0;
+            width: 220px;
+            position: sticky;
+            top: 0;
+            max-height: 100vh;
+            overflow-y: auto;
+        }
+        .sidebar-section {
+            margin-bottom: 1.5em;
+            padding: 0 1em;
+        }
+        .sidebar-section-title {
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            color: #555;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        .sidebar-nav {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar-nav li {
+            margin: 0;
+        }
+        .sidebar-nav a {
+            display: block;
+            padding: 0.5em 1em;
+            color: #0645ad;
+            text-decoration: none;
+            border-left: 3px solid transparent;
+            font-size: 0.95em;
+        }
+        .sidebar-nav a:hover {
+            background: #e8e8e8;
+            border-left-color: #0645ad;
+        }
+        .infobox {
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            border: 1px solid #d8d8d8;
+            padding: 1.5em;
+            margin: 1em 0 1em 1em;
+            float: right;
+            width: 280px;
+            clear: right;
+            font-size: 0.9em;
+            border-radius: 3px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .infobox-title {
+            font-weight: 700;
+            text-align: center;
+            padding-bottom: 1em;
+            border-bottom: 2px solid #0645ad;
+            margin-bottom: 1em;
+            font-size: 1.1em;
+            color: #0645ad;
+        }
+        .infobox-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1em;
+            margin: 0.8em 0;
+            padding: 0.8em 0;
+            border-bottom: 1px solid #e8e8e8;
+        }
+        .infobox-row:last-child {
+            border-bottom: none;
+        }
+        .infobox-label {
+            font-weight: 600;
+            color: #555;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        .infobox-value {
+            color: #0645ad;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        .content-wrapper {
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .content-main {
+            flex: 1;
+            padding: 2em 3em;
+            background: white;
+            min-height: 100vh;
+        }
+        .header-info {
+            margin-bottom: 2em;
+            padding-bottom: 1em;
+            border-bottom: 2px solid #d0d0d0;
+        }
+        .article-lead {
+            font-size: 1.05em;
+            line-height: 1.6;
+            margin-bottom: 1em;
+        }
+        .article-lead strong {
+            font-weight: 600;
+        }
+        section {
+            margin: 2em 0;
+        }
+        .project-card {
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            border: 1px solid #d8d8d8;
+            padding: 2em;
+            margin: 1.5em 0;
+            border-radius: 3px;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #0645ad, #0d7fb3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .project-card:hover {
+            border-color: #b8d4e8;
+            box-shadow: 0 2px 6px rgba(6, 69, 173, 0.1);
+        }
+        .project-card:hover::before {
+            opacity: 1;
+        }
+        .project-title {
+            font-weight: 600;
+            font-size: 1.15em;
+            color: #0645ad;
+            margin-bottom: 0.8em;
+            line-height: 1.4;
+        }
+        .tech-tags {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 0.5em;
+        }
+        .tech-tag {
+            display: inline-block;
+            background: #e8e8e8;
+            padding: 0.2em 0.5em;
+            margin-right: 0.3em;
+            margin-top: 0.3em;
+            border-radius: 2px;
+        }
+        .blog-entry {
+            padding: 1em 0;
+            border-bottom: 1px solid #e8e8e8;
+        }
+        .blog-entry:last-child {
+            border-bottom: none;
+        }
+        .blog-date {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .blog-title {
+            color: #0645ad;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05em;
+        }
+        .blog-title:hover {
+            text-decoration: underline;
+        }
+        .contact-section {
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            padding: 2em;
+            border: 1px solid #d8d8d8;
+            border-radius: 3px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2em;
+        }
+        .contact-method {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1.5em;
+            background: white;
+            border-radius: 3px;
+            border: 1px solid #e8e8e8;
+            transition: all 0.3s ease;
+        }
+        .contact-method:hover {
+            border-color: #0645ad;
+            box-shadow: 0 2px 8px rgba(6, 69, 173, 0.15);
+            transform: translateY(-2px);
+        }
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f0f0;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        .contact-method:hover .contact-icon {
+            background: #0645ad;
+        }
+        .contact-method:hover .contact-icon svg {
+            color: white;
+        }
+        .contact-icon svg {
+            width: 28px;
+            height: 28px;
+            color: #0645ad;
+            transition: color 0.3s ease;
+        }
+        .contact-method strong {
+            color: #222;
+            display: block;
+            margin-bottom: 0.5em;
+            font-size: 1.1em;
+        }
+        .contact-method a {
+            color: #0645ad;
+            text-decoration: none;
+            font-size: 0.95em;
+            word-break: break-word;
+        }
+        .contact-method a:hover {
+            text-decoration: underline;
+        }
+        .reference-list {
+            list-style: decimal;
+            margin-left: 2em;
+            font-size: 0.9em;
+        }
+        .reference-list li {
+            margin: 0.5em 0;
+            line-height: 1.6;
+        }
+        .toc {
+            background: #f9f9f9;
+            border: 1px solid #d0d0d0;
+            padding: 1em 1.5em;
+            margin: 1.5em 0;
+            border-radius: 2px;
+        }
+        .toc-title {
+            font-weight: 600;
+            font-size: 0.95em;
+            margin-bottom: 0.5em;
+        }
+        .toc-list {
+            list-style: none;
+            padding-left: 1em;
+        }
+        .toc-list li {
+            margin: 0.3em 0;
+        }
+        .toc-list a {
+            color: #0645ad;
+            text-decoration: none;
+        }
+        .toc-list a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            text-align: center;
+            padding: 2em 1em;
+            border-top: 1px solid #d0d0d0;
+            font-size: 0.85em;
+            color: #666;
+            background: #f9f9f9;
+        }
+    </style>
 </head>
+<body>
+    <div class="content-wrapper">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <div style="padding: 0 1em 1em;">
+                    <h3 style="font-size: 1.3em; margin: 0;">Prosper Ughakpoteni</h3>
+                    <p style="font-size: 0.9em; color: #666; margin-top: 0.3em;">AI & Robotics Developer</p>
+                </div>
+            </div>
 
-<body class="bg-slate-950 text-gray-200">
+            <div class="sidebar-section">
+                <div class="sidebar-section-title">Navigation</div>
+                <ul class="sidebar-nav">
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#blog">Publications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
 
-<!-- NAVBAR -->
-<nav class="fixed w-full bg-slate-900/90 backdrop-blur border-b border-slate-800 z-50">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="sidebar-section">
+                <div class="sidebar-section-title">Information</div>
+                <ul class="sidebar-nav">
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#education">Education</a></li>
+                </ul>
+            </div>
 
-    <a href="#" class="text-cyan-400 font-bold text-lg">
-      &lt;Prosper Ughakpoteni /&gt;
-    </a>
+            <div class="sidebar-section">
+                <div class="sidebar-section-title">External Links</div>
+                <div style="display: flex; gap: 0.8em; padding: 0 1em;">
+                    <a href="https://www.linkedin.com/in/prosper-ughakpoteni/" target="_blank" title="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: #f0f0f0; border-radius: 50%; transition: all 0.3s ease; color: #0645ad; border: 1px solid transparent;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                            <path d="M19 0h-14c-2.8 0-5 2.2-5 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5v-14c0-2.8-2.2-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.3c-1 0-1.7-.7-1.7-1.6s.7-1.6 1.7-1.6 1.7.7 1.7 1.6-.7 1.6-1.7 1.6zm13.5 11.3h-3v-5.5c0-1.3-.5-2.2-1.8-2.2-1 0-1.6.7-1.9 1.3-.1.2-.1.5-.1.9v5.5h-3s.1-8.9 0-10h3v1.4c.4-.6 1.2-1.5 2.9-1.5 2.1 0 3.7 1.4 3.7 4.4v5.7z"/>
+                        </svg>
+                    </a>
+                    <a href="https://x.com/prosper_teni" target="_blank" title="X / Twitter" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: #f0f0f0; border-radius: 50%; transition: all 0.3s ease; color: #0645ad; border: 1px solid transparent;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817L2.396 21.75H.029l7.73-8.835L.316 2.25h6.885l4.734 6.267 5.579-6.267zM17.15 19.418h2.303L6.971 4.556H4.56l12.59 14.862z"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:prosperteni580@gmail.com" title="Email" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: #f0f0f0; border-radius: 50%; transition: all 0.3s ease; color: #0645ad; border: 1px solid transparent;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </aside>
 
-    <div class="space-x-8 text-sm text-gray-400 hidden md:block">
-      <a href="#about" class="hover:text-cyan-400">About</a>
-      <a href="#projects" class="hover:text-cyan-400">Projects</a>
-      <a href="#blog" class="hover:text-cyan-400">Blog</a>
-      <a href="#contact" class="hover:text-cyan-400">Contact</a>
+        <!-- MAIN CONTENT -->
+        <main class="content-main">
+            <!-- INFOBOX -->
+            <div class="infobox">
+                <div class="infobox-title">Quick Facts</div>
+                <div class="infobox-row">
+                    <div class="infobox-label">Years Active</div>
+                    <div class="infobox-value">3+</div>
+                </div>
+                <div class="infobox-row">
+                    <div class="infobox-label">Projects</div>
+                    <div class="infobox-value">20+</div>
+                </div>
+                <div class="infobox-row">
+                    <div class="infobox-label">Focus Areas</div>
+                    <div class="infobox-value">AI, Robotics, CV</div>
+                </div>
+                <div class="infobox-row">
+                    <div class="infobox-label">Technologies</div>
+                    <div class="infobox-value">10+</div>
+                </div>
+            </div>
+
+            <!-- HEADER -->
+            <div class="header-info" id="overview">
+                <h1>Prosper Ughakpoteni</h1>
+                <p class="article-lead">
+                    <strong>Prosper Ughakpoteni</strong> is an AI and robotics-focused developer specializing in 
+                    computer vision, machine learning, and web systems. He is known for building practical, 
+                    real-world solutions that emphasize clean architecture and performance over theoretical complexity.
+                </p>
+            </div>
+
+            <!-- TABLE OF CONTENTS -->
+            <div class="toc">
+                <div class="toc-title">Contents</div>
+                <ol class="toc-list">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience & Focus</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills & Technologies</a></li>
+                    <li><a href="#blog">Publications & Insights</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ol>
+            </div>
+
+            <!-- ABOUT SECTION -->
+            <section id="about">
+                <h2>About</h2>
+                <p>
+                    Prosper Ughakpoteni is an artificial intelligence and robotics developer with over 3 years 
+                    of professional coding experience. His work focuses on the intersection of machine learning, 
+                    computer vision, and systems design.
+                </p>
+                <p>
+                    He specializes in building practical systems that solve real-world problems rather than 
+                    pursuing purely theoretical approaches. This philosophy informs his work across multiple domains:
+                </p>
+                <ul style="margin-left: 2em; margin-top: 1em;">
+                    <li><strong>Artificial Intelligence:</strong> Transfer learning models, explainable AI, and domain-specific applications</li>
+                    <li><strong>Computer Vision:</strong> Real-time object detection, image processing, and visual system design</li>
+                    <li><strong>Web Systems:</strong> Full-stack development with emphasis on clean, maintainable architecture</li>
+                </ul>
+            </section>
+
+            <!-- EXPERIENCE -->
+            <section id="experience">
+                <h2>Experience & Focus Areas</h2>
+                <p>
+                    Prosper's work covers multiple intersecting domains within AI and software engineering:
+                </p>
+                
+                <h3>Robotics & Automation</h3>
+                <p>
+                    Deep interest in robotic systems, automation, and real-time embedded systems. This includes 
+                    sensor integration, control systems, and autonomous decision-making.
+                </p>
+
+                <h3>Computer Vision</h3>
+                <p>
+                    Specialized knowledge in visual perception systems, real-time object detection using YOLO and 
+                    OpenCV, and image processing pipelines for production environments.
+                </p>
+
+                <h3>Machine Learning & AI</h3>
+                <p>
+                    Expertise in transfer learning, model explainability (SHAP), and domain-specific AI applications. 
+                    Emphasis on interpretable models that can be deployed and maintained in production.
+                </p>
+            </section>
+
+            <!-- PROJECTS -->
+            <section id="projects">
+                <h2>Projects</h2>
+                <p>
+                    Notable projects include:
+                </p>
+
+                <div class="project-card">
+                    <div class="project-title">Heart Disease AI Prediction System</div>
+                    <p>
+                        A transfer learning model for predicting heart disease risk with full explainability. 
+                        Implements SHAP for model interpretability and XGBoost for robust predictions. 
+                        Designed for clinical decision support.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">XGBoost</span>
+                        <span class="tech-tag">SHAP</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title">YOLO Real-Time Vision System</div>
+                    <p>
+                        A production-grade object detection system utilizing YOLO (You Only Look Once) and OpenCV. 
+                        Optimized for real-time performance with sub-30ms inference latency. Applications include 
+                        surveillance and autonomous navigation.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">YOLO</span>
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">Computer Vision</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title">Full-Stack Web Platform</div>
+                    <p>
+                        A comprehensive web application featuring secure authentication, dynamic user interface, 
+                        and robust backend systems. Built with modern web technologies and emphasizing scalability 
+                        and maintainability.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">Authentication</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SKILLS -->
+            <section id="skills">
+                <h2>Skills & Technologies</h2>
+                <p>Proficiency across multiple technology domains:</p>
+                
+                <h3>Programming Languages</h3>
+                <p>Python, JavaScript, SQL, C++</p>
+
+                <h3>AI & Machine Learning</h3>
+                <p>TensorFlow, PyTorch, Scikit-learn, XGBoost, SHAP, Transfer Learning</p>
+
+                <h3>Computer Vision</h3>
+                <p>OpenCV, YOLO, Image Processing, Object Detection</p>
+
+                <h3>Web Development</h3>
+                <p>React, Flask, HTML/CSS, REST APIs, Database Design</p>
+
+                <h3>Tools & Platforms</h3>
+                <p>Git, Docker, Jupyter, Linux, Pandas, NumPy</p>
+            </section>
+
+            <!-- PUBLICATIONS -->
+            <section id="blog">
+                <h2>Publications & Insights</h2>
+                <p>Recent technical writings and research:</p>
+
+                <div class="blog-entry">
+                    <div class="blog-date">March 2026</div>
+                    <a href="#" class="blog-title">Building Transfer Learning Systems for Production</a>
+                    <p style="font-size: 0.95em; color: #666; margin: 0.3em 0;">
+                        An exploration of practical transfer learning approaches, from model selection to deployment 
+                        considerations and performance optimization in production environments.
+                    </p>
+                </div>
+
+                <div class="blog-entry">
+                    <div class="blog-date">February 2026</div>
+                    <a href="#" class="blog-title">Understanding YOLO Architectures and Real-Time Detection</a>
+                    <p style="font-size: 0.95em; color: #666; margin: 0.3em 0;">
+                        Deep dive into YOLO architecture variants, their performance characteristics, and practical 
+                        applications in computer vision systems requiring real-time inference.
+                    </p>
+                </div>
+
+                <div class="blog-entry">
+                    <div class="blog-date">January 2026</div>
+                    <a href="#" class="blog-title">Explainable AI: Making Machine Learning Models Interpretable</a>
+                    <p style="font-size: 0.95em; color: #666; margin: 0.3em 0;">
+                        Methods for achieving model interpretability using SHAP, LIME, and other explainability 
+                        techniques essential for clinical and high-stakes applications.
+                    </p>
+                </div>
+            </section>
+
+            <!-- CONTACT -->
+            <section id="contact">
+                <h2>Contact</h2>
+                <div class="contact-section">
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                        </div>
+                        <strong>Email</strong>
+                        <a href="mailto:prosperteni580@gmail.com">prosperteni580@gmail.com</a>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.8 0-5 2.2-5 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5v-14c0-2.8-2.2-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.3c-1 0-1.7-.7-1.7-1.6s.7-1.6 1.7-1.6 1.7.7 1.7 1.6-.7 1.6-1.7 1.6zm13.5 11.3h-3v-5.5c0-1.3-.5-2.2-1.8-2.2-1 0-1.6.7-1.9 1.3-.1.2-.1.5-.1.9v5.5h-3s.1-8.9 0-10h3v1.4c.4-.6 1.2-1.5 2.9-1.5 2.1 0 3.7 1.4 3.7 4.4v5.7z"/>
+                            </svg>
+                        </div>
+                        <strong>LinkedIn</strong>
+                        <a href="https://www.linkedin.com/in/prosper-ughakpoteni/" target="_blank">Visit Profile</a>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817L2.396 21.75H.029l7.73-8.835L.316 2.25h6.885l4.734 6.267 5.579-6.267zM17.15 19.418h2.303L6.971 4.556H4.56l12.59 14.862z"/>
+                            </svg>
+                        </div>
+                        <strong>X / Twitter</strong>
+                        <a href="https://x.com/prosper_teni" target="_blank">@prosper_teni</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <div class="footer">
+                <p>
+                    This portfolio was built with HTML, Tailwind CSS, and a commitment to information-first design principles. 
+                    Last updated: March 2026.
+                </p>
+            </div>
+        </main>
     </div>
-
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="min-h-screen flex items-center">
-
-<div class="max-w-6xl mx-auto px-6">
-
-<p class="text-green-400 text-sm mb-4">// Hello world</p>
-
-<h1 class="text-5xl md:text-7xl font-extrabold leading-tight">
-Prosper <span class="text-cyan-400">Ughakpoteni</span>
-</h1>
-
-<p class="mt-4 text-sm text-gray-500">Area of Interest</p>
-<p class="text-lg text-gray-300 mt-1">Artificial Intelligence</p>
-<p class="mt-4 text-sm text-gray-500">Focus</p>
-<p class="text-lg text-gray-400 mt-1">Robotics • Computer Vision</p>
-
-<p class="mt-6 max-w-xl text-gray-400">
-I design and build intelligent systems with a focus on real-world applications,
-clean architecture, and performance.
-</p>
-
-<div class="mt-8 space-x-4">
-
-<a href="#projects"
-class="bg-cyan-400 text-black px-6 py-3 font-medium hover:bg-cyan-300 transition">
-View Projects
-</a>
-
-<a href="#contact"
-class="border border-gray-700 px-6 py-3 hover:border-cyan-400 hover:text-cyan-400 transition">
-Contact Me
-</a>
-
-</div>
-
-</div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="py-24 bg-slate-900">
-
-<div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12">
-
-<div>
-
-<p class="text-cyan-400 text-sm mb-3">// About</p>
-
-<h2 class="text-4xl font-bold mb-6">
-About <span class="text-cyan-400">Me</span>
-</h2>
-
-<p class="text-gray-400 mb-4">
-I am an AI and robotics-focused developer with experience in computer vision,
-machine learning, and web systems.
-</p>
-
-<p class="text-gray-400">
-I focus on building practical systems that solve real-world problems
-rather than just theoretical models.
-</p>
-
-</div>
-
-<div class="grid grid-cols-2 gap-6">
-
-<div class="border border-slate-800 p-6">
-<p class="text-3xl text-cyan-400 font-bold">3+</p>
-<p class="text-sm text-gray-500">Years Coding</p>
-</div>
-
-<div class="border border-slate-800 p-6">
-<p class="text-3xl text-cyan-400 font-bold">20+</p>
-<p class="text-sm text-gray-500">Projects</p>
-</div>
-
-<div class="border border-slate-800 p-6">
-<p class="text-3xl text-cyan-400 font-bold">10+</p>
-<p class="text-sm text-gray-500">Technologies</p>
-</div>
-
-<div class="border border-slate-800 p-6">
-<p class="text-3xl text-cyan-400 font-bold">∞</p>
-<p class="text-sm text-gray-500">Curiosity</p>
-</div>
-
-</div>
-
-</div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="py-24">
-
-<div class="max-w-6xl mx-auto px-6">
-
-<p class="text-cyan-400 text-sm mb-3">// Projects</p>
-
-<h2 class="text-4xl font-bold mb-12">
-My <span class="text-cyan-400">Work</span>
-</h2>
-
-<div class="grid md:grid-cols-3 gap-8">
-
-<div class="border border-slate-800 p-6 hover:border-cyan-400 transition">
-
-<h3 class="text-xl font-semibold mb-2">
-Heart Disease AI
-</h3>
-
-<p class="text-gray-400 text-sm mb-4">
-Transfer learning model for predicting heart disease with explainability.
-</p>
-
-<p class="text-xs text-gray-500 mb-4">
-Python • XGBoost • SHAP
-</p>
-
-<a href="#" class="text-cyan-400 text-sm">
-View →
-</a>
-
-</div>
-
-<div class="border border-slate-800 p-6 hover:border-cyan-400 transition">
-
-<h3 class="text-xl font-semibold mb-2">
-YOLO Vision System
-</h3>
-
-<p class="text-gray-400 text-sm mb-4">
-Real-time object detection system using YOLO and OpenCV.
-</p>
-
-<p class="text-xs text-gray-500 mb-4">
-Python • OpenCV • YOLO
-</p>
-
-<a href="#" class="text-cyan-400 text-sm">
-View →
-</a>
-
-</div>
-
-<div class="border border-slate-800 p-6 hover:border-cyan-400 transition">
-
-<h3 class="text-xl font-semibold mb-2">
-Web Platform
-</h3>
-
-<p class="text-gray-400 text-sm mb-4">
-Full-stack web app with authentication and dynamic UI.
-</p>
-
-<p class="text-xs text-gray-500 mb-4">
-React • Flask • SQL
-</p>
-
-<a href="#" class="text-cyan-400 text-sm">
-View →
-</a>
-
-</div>
-
-</div>
-
-</div>
-</section>
-
-<!-- BLOG -->
-<section id="blog" class="py-24 bg-slate-900">
-
-<div class="max-w-4xl mx-auto px-6">
-
-<p class="text-cyan-400 text-sm mb-3">// Blog</p>
-
-<h2 class="text-4xl font-bold mb-12">
-Insights & <span class="text-cyan-400">Notes</span>
-</h2>
-
-<div class="space-y-6">
-
-<div class="border-b border-slate-800 pb-4">
-<p class="text-sm text-gray-500">March 2026</p>
-<a href="#" class="text-lg hover:text-cyan-400">
-Building Transfer Learning Systems
-</a>
-</div>
-
-<div class="border-b border-slate-800 pb-4">
-<p class="text-sm text-gray-500">February 2026</p>
-<a href="#" class="text-lg hover:text-cyan-400">
-Understanding YOLO Architectures
-</a>
-</div>
-
-</div>
-
-</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="py-24 bg-black text-white">
-  <div class="max-w-4xl mx-auto px-6 text-center">
-
-    <!-- Heading -->
-    <h2 class="text-5xl font-bold mb-6">
-      Let's <span class="text-cyan-400">Connect</span>
-    </h2>
-
-    <p class="text-gray-400 mb-12 text-lg">
-      Interested in AI, robotics, or collaboration? Reach out through any platform below.
-    </p>
-
-    <!-- Contact Cards -->
-    <div class="grid md:grid-cols-3 gap-6">
-
-      <!-- Gmail -->
-      <a href="mailto:prosperteni580@gmail.com"
-         class="group border border-gray-800 rounded-2xl p-6 hover:border-cyan-400 hover:bg-gray-900 transition">
-
-        <div class="flex flex-col items-center space-y-4">
-
-          <!-- Icon -->
-          <div class="bg-gray-800 p-4 rounded-full group-hover:bg-cyan-400 transition">
-            <svg xmlns="http://www.w3.org/2000/svg" 
-                 class="w-6 h-6 text-cyan-400 group-hover:text-black"
-                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M16 12H8m8 0l-4 4m4-4l-4-4" />
-            </svg>
-          </div>
-
-          <h3 class="text-xl font-semibold">Gmail</h3>
-          <p class="text-gray-400 text-sm">Send me an email directly</p>
-        </div>
-      </a>
-
-      <!-- LinkedIn -->
-      <a href="https://www.linkedin.com/in/prosper-ughakpoteni/"
-         class="group border border-gray-800 rounded-2xl p-6 hover:border-cyan-400 hover:bg-gray-900 transition">
-
-        <div class="flex flex-col items-center space-y-4">
-
-          <div class="bg-gray-800 p-4 rounded-full group-hover:bg-cyan-400 transition">
-            <svg xmlns="http://www.w3.org/2000/svg"
-                 class="w-6 h-6 text-cyan-400 group-hover:text-black"
-                 fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19 0h-14c-2.8 0-5 2.2-5 5v14c0 
-                       2.8 2.2 5 5 5h14c2.8 0 5-2.2 
-                       5-5v-14c0-2.8-2.2-5-5-5zm-11 
-                       19h-3v-10h3v10zm-1.5-11.3c-1 
-                       0-1.7-.7-1.7-1.6s.7-1.6 
-                       1.7-1.6 1.7.7 1.7 
-                       1.6-.7 1.6-1.7 
-                       1.6zm13.5 11.3h-3v-5.5c0-1.3 
-                       -.5-2.2-1.8-2.2-1 0-1.6.7-1.9 
-                       1.3-.1.2-.1.5-.1.9v5.5h-3s.1-8.9 
-                       0-10h3v1.4c.4-.6 1.2-1.5 
-                       2.9-1.5 2.1 0 3.7 1.4 
-                       3.7 4.4v5.7z"/>
-            </svg>
-          </div>
-
-          <h3 class="text-xl font-semibold">LinkedIn</h3>
-          <p class="text-gray-400 text-sm">Connect professionally</p>
-        </div>
-      </a>
-
-      <!-- X -->
-      <a href="https://x.com/prosper_teni"
-         class="group border border-gray-800 rounded-2xl p-6 hover:border-cyan-400 hover:bg-gray-900 transition">
-
-        <div class="flex flex-col items-center space-y-4">
-
-          <div class="bg-gray-800 p-4 rounded-full group-hover:bg-cyan-400 transition">
-            <svg xmlns="http://www.w3.org/2000/svg"
-                 class="w-6 h-6 text-cyan-400 group-hover:text-black"
-                 fill="currentColor" viewBox="0 0 24 24">
-              <path d="M18.244 2H21l-6.5 7.43L22 22h-6.828l-5.35-6.98L3.5 
-                       22H1l7-8.01L2 2h6.828l4.84 
-                       6.33L18.244 2z"/>
-            </svg>
-          </div>
-
-          <h3 class="text-xl font-semibold">X</h3>
-          <p class="text-gray-400 text-sm">Follow my updates</p>
-        </div>
-      </a>
-
-    </div>
-
-    <!-- Bottom CTA -->
-    <div class="mt-12">
-      <a href="mailto:prosperteni580@gmail.com"
-         class="inline-block bg-cyan-400 text-black px-10 py-4 rounded-full font-semibold hover:bg-cyan-300 transition">
-        Send Direct Message
-      </a>
-    </div>
-
-  </div>
-</section>
-<!-- FOOTER -->
-<footer class="border-t border-slate-800 py-6 text-center text-sm text-gray-500">
-
-Built with Tailwind • Prosper Ughakpoteni
-
-</footer>
-
 </body>
 </html>

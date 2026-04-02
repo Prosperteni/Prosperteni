@@ -1,0 +1,64 @@
+PROSPER UGHAKPOTENI
+
+Guilin, China 
+prosperteni580@gmail.com | (+86) 155-7836-9707 LinkedIn | GitHub (260+ Contributions/Year) 
+PROFESSIONAL SUMMARY
+
+High-achieving Artificial Intelligence Undergraduate at Guilin University of Electronic Technology with a specialization in Computer Vision and Applied Machine Learning. Proven track record of shipping end-to-end ML pipelines and full-stack applications with a focus on Explainable AI (XAI) and performance optimization. Seeking a Software Engineering or AI Internship to apply technical rigor to real-world challenges.
+TECHNICAL SKILLS
+
+    AI / Machine Learning: PyTorch, TensorFlow, YOLOv8, OpenCV, Transfer Learning, SHAP (Explainable AI), CNNs 
+
+    Languages: Python (Advanced), JavaScript, C++ (Arduino), HTML5, CSS3 
+
+    Tools & Frameworks: Git, GitHub, Vercel, Arduino IDE, Node.js, React (Modern JS Frameworks) 
+
+    Spoken Languages: English (Fluent), Chinese (HSK Level Progressing) 
+
+PROFESSIONAL EXPERIENCE
+
+STEM Professionals | STEM Robotics Intern | Jun 2022 – Aug 2024 
+
+    Optimized hardware reliability for 10+ student workshops by engineering and debugging robotics kits, reducing assembly errors by 30% through improved documentation.
+
+    Facilitated technical training for cohorts of 20+ students, achieving a >90% concept-retention rate via customized post-session assessments.
+
+    Collaborated in a multidisciplinary team of 5 to design a hands-on curriculum that boosted student engagement scores by 25%.
+
+    Represented the organization at the World Robot Olympiad 2024, competing in systems design and robotics challenges against 100+ international teams.
+
+TECHNICAL PROJECTS
+
+Cardiac Risk Classification with Explainable AI (XAI) | [GitHub Link] | 2025 – Present 
+
+    Architected a diagnostic pipeline using transfer learning on clinical datasets, targeting an F1-score of >85% for cardiac risk classification.
+
+    Integrated a SHAP-based explainability layer to identify the top 3 risk factors per prediction, improving model transparency for non-expert clinicians.
+
+YOLOv8 Object Detection Pipeline | [GitHub Link] | 2024 
+
+    Developed a custom inference pipeline on a 1,000+ image dataset, achieving 78% mAP.
+
+    Increased efficiency by reducing inference latency by 40% through rigorous model weight optimization.
+
+ShareSpace — Full-Stack Collaboration Platform | [Live Demo] | 2025 
+
+    Engineered a real-time shared workspace using modern JS frameworks and deployed via Vercel with a fully automated CI/CD pipeline.
+
+    Shipped 5+ core features (Live editing, Auth, File sharing) while maintaining a sub-200ms average page load time across 100+ commits.
+
+Arduino Rubik’s Cube Solver | [GitHub Link] | 2024 
+
+    Designed and programmed a robotic arm that identifies and solves a standard Rubik’s Cube in under 90 seconds using sensor feedback and servo control logic.
+
+EDUCATION
+
+Guilin University of Electronic Technology | B.Eng. in Artificial Intelligence | Sep 2024 – Present 
+
+    Relevant Coursework: Machine Learning, Computer Vision, Data Structures & Algorithms, Linear Algebra.
+
+CERTIFICATIONS & AWARDS
+
+    International Participant, World Robot Olympiad (WRO) 2024 
+
+    HTML & CSS Level 1, Cambridge Certification Authority

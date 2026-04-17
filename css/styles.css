@@ -695,7 +695,7 @@ a.qualification__view:visited {
 	visibility: visible;
 }
 
-/*==================== PROJECTS ====================*/
+/*==================== _caS ====================*/
 .projects {
 	background-color: var(--body-color);
 }
@@ -1222,12 +1222,12 @@ a.qualification__view:visited {
 	}
 
 	.projects__container {
-		grid-template-columns: repeat(3, 350px);
+		grid-template-columns: repeat(3, 400px);
 		padding-block: 3rem 1rem;
 	}
 
 	.projects__card {
-		padding: 1.25rem 1.25rem 2.5rem;
+		padding: 1.25rem 1.25rem 3.5rem;
 	}
 
 	.projects__image {

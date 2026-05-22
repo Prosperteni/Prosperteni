@@ -75,29 +75,6 @@ modalCloses.forEach((modalClose, i) => {
     })
 })
 
-/*==================== EMAIL JS ====================*/
-const contactForm = document.getElementById('contact__form'),
-    contactMessage = document.getElementById('contact__message')
-
-const sendEmail = (e) =>{
-    e.preventDefault()
-
-    emailjs.sendForm('service_b7qjgmd', 'template_i9a3koo', '#contact__form', '3Tle9MVUGVZJejuxy')
-        .then(() =>{
-            contactMessage.textContent = 'Message sent successfully ✅'
-
-            setTimeout(() =>{
-                contactMessage.textContent = ''
-            }, 5000)
-
-            contactForm.reset()
-        }, () =>{
-            contactMessage.textContent = 'Message not sent (service error) ❌'
-        })
-}
-
-contactForm.addEventListener('submit', sendEmail)
-
 
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/

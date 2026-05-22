@@ -44,15 +44,15 @@ class Prosper:
 
 | Domain | Details |
 |---|---|
-| 👁️ **Computer Vision** | Perception, object detection, feature extraction for robotic systems |
-| 🤖 **Robotics** | Hands-on competition experience; bridging ML and physical systems |
-| 🔁 **Transfer Learning** | Cross-dataset generalization, domain adaptation, fine-tuning strategies |
-| 🔬 **Explainable AI** | SHAP-based interpretability, model transparency in high-stakes domains |
-| 📊 **Multi-modal Learning** | Vision + tabular + text fusion |
+| **Computer Vision** | Perception, object detection, feature extraction for robotic systems |
+| **Robotics** | Hands-on competition experience; bridging ML and physical systems |
+| **Transfer Learning** | Cross-dataset generalization, domain adaptation, fine-tuning strategies |
+| **Explainable AI** | SHAP-based interpretability, model transparency in high-stakes domains |
+| **Multi-modal Learning** | Vision + tabular + text fusion |
 
 ---
 
-## 🚀 Featured Projects
+## Featured Projects
 
 ### 🫀 [CardioTransferX](https://github.com/Prosperteni/CardioTransferX)
 > Cross-dataset transfer learning with explainable AI for heart disease prediction
@@ -73,10 +73,10 @@ A research-driven framework that transfers knowledge across heterogeneous medica
 
 ## 📌 Current Focus
 
-- ✍️ Writing **research-grade papers** in AI & robotics perception
-- 🏗️ Designing **realistic, implementable ML architectures**
-- 🎓 Completing my **B.Sc. in Artificial Intelligence**
-- 🤝 Open to **serious technical collaborations and research discussions**
+- Writing **research-grade papers** in AI & robotics perception
+- Designing **realistic, implementable ML architectures**
+- Completing my **B.Sc. in Artificial Intelligence**
+- Open to **serious technical collaborations and research discussions**
 
 ---
 

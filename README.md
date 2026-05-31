@@ -4,7 +4,7 @@
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/prosper-ughakpoteni/)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Prosperteni)
-[![Portfolio](https://img.shields.io/badge/Portfolio-7c85ff?style=for-the-badge&logo=vercel&logoColor=white)](https://prosperteni.github.io)
+[![Portfolio](https://img.shields.io/badge/Portfolio-7c85ff?style=for-the-badge&logo=vercel&logoColor=white)](https://prosperteni.github.io/Prosperteni/)
 
 </div>
 

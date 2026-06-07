@@ -1,900 +1,938 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EE07S040WY"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prosper Ughakpoteni</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    gtag('config', 'G-EE07S040WY');
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    :root {
+      --white:   #ffffff;
+      --off:     #f7f6f3;
+      --ink:     #111111;
+      --mid:     #555555;
+      --light:   #bbbbbb;
+      --rule:    #e4e4e0;
+      --accent:  #1a1a1a;
+      --serif:   'DM Serif Display', Georgia, serif;
+      --sans:    'DM Sans', system-ui, sans-serif;
+    }
 
-    <!--==================== ICONS ====================-->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    html { scroll-behavior: smooth; }
 
-    <!--==================== CSS ====================-->
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="./css/loader.css">
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--ink);
+      font-weight: 300;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-    <title>Prosper - Portfolio</title>
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 4rem;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-toggle { display: none; cursor: pointer; }
+    .nav-toggle span {
+      display: block; width: 22px; height: 1.5px;
+      background: var(--ink); margin: 5px 0;
+      transition: all 0.3s;
+    }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 8rem 4rem 4rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      border: 1px solid var(--rule);
+      padding: 0.3rem 0.8rem;
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+    .hero-name em {
+      font-style: italic;
+      color: var(--mid);
+    }
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--mid);
+      max-width: 38ch;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.8rem 1.8rem;
+      border-radius: 2px;
+      transition: all 0.25s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary { background: var(--ink); color: var(--white); }
+    .btn-primary:hover { background: #333; }
+    .btn-outline {
+      background: transparent; color: var(--ink);
+      border: 1px solid var(--rule);
+    }
+    .btn-outline:hover { border-color: var(--ink); }
+    .hero-socials {
+      display: flex; gap: 1.2rem; margin-top: 2rem;
+    }
+    .hero-socials a {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .hero-socials a:hover { color: var(--ink); }
+
+    /* Photo side */
+    .hero-photo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .photo-frame {
+      position: relative;
+      width: 340px; height: 420px;
+    }
+    .photo-frame::before {
+      content: '';
+      position: absolute;
+      top: 16px; left: 16px;
+      width: 100%; height: 100%;
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      z-index: 0;
+    }
+    .photo-frame img {
+      position: relative; z-index: 1;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 3px;
+      display: block;
+    }
+    .photo-frame .photo-placeholder {
+      position: relative; z-index: 1;
+      width: 100%; height: 100%;
+      background: var(--off);
+      border-radius: 3px;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 0.5rem;
+    }
+    .photo-placeholder svg { color: var(--light); }
+    .photo-placeholder p { font-size: 0.78rem; color: var(--light); letter-spacing: 0.06em; text-transform: uppercase; }
+
+    /* ── SECTION BASE ── */
+    section { padding: 6rem 4rem; border-bottom: 1px solid var(--rule); }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-label {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 3.5rem;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .about-aside {}
+    .about-aside-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 3px;
+      border: 1px solid var(--rule);
+      display: block;
+    }
+    .about-aside-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--off);
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .about-aside-placeholder p { font-size: 0.75rem; color: var(--light); letter-spacing: 0.08em; text-transform: uppercase; }
+    .about-body {}
+    .about-intro {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      line-height: 1.5;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+    .about-text {
+      font-size: 0.97rem;
+      color: var(--mid);
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+    .about-stats {
+      display: flex; gap: 3rem; margin: 2.5rem 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      padding: 1.5rem 0;
+    }
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      color: var(--ink);
+      display: block;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--light);
+    }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--off); }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .skill-card {
+      padding: 2.5rem;
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      background: var(--white);
+      transition: background 0.2s;
+    }
+    .skill-card:hover { background: var(--off); }
+    .skill-card:nth-child(3n) { border-right: none; }
+    .skill-card:nth-child(4), .skill-card:nth-child(5), .skill-card:nth-child(6) { border-bottom: none; }
+    .skill-num {
+      font-family: var(--serif);
+      font-size: 0.85rem;
+      color: var(--light);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .skill-name {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+    .skill-desc {
+      font-size: 0.85rem;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-list { display: flex; flex-direction: column; gap: 0; }
+    .edu-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 3rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: start;
+    }
+    .edu-item:first-child { border-top: 1px solid var(--rule); }
+    .edu-year {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--light);
+      padding-top: 0.2rem;
+    }
+    .edu-degree {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+    .edu-school {
+      font-size: 0.88rem;
+      color: var(--mid);
+      margin-bottom: 0.8rem;
+    }
+    .edu-detail {
+      font-size: 0.83rem;
+      color: var(--light);
+      line-height: 1.7;
+    }
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .cert-card {
+      padding: 1.8rem;
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      transition: border-color 0.2s;
+    }
+    .cert-card:hover { border-color: var(--ink); }
+    .cert-name {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+    .cert-org {
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--light);
+    }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--off); }
+    .projects-list { display: flex; flex-direction: column; gap: 0; }
+    .project-item {
+      display: grid;
+      grid-template-columns: 1fr 2fr auto;
+      gap: 3rem;
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: start;
+      transition: opacity 0.2s;
+    }
+    .project-item:first-child { border-top: 1px solid var(--rule); }
+    .project-item:hover { opacity: 0.75; }
+    .project-num {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      color: var(--rule);
+      line-height: 1;
+      user-select: none;
+    }
+    .project-title {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+    .project-tags {
+      display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.9rem;
+    }
+    .tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--mid);
+      border: 1px solid var(--rule);
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+    }
+    .project-desc {
+      font-size: 0.88rem;
+      color: var(--mid);
+      line-height: 1.75;
+    }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      white-space: nowrap;
+      padding-top: 0.4rem;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s;
+    }
+    .project-link:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 6rem;
+    }
+    .contact-left {}
+    .contact-intro {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      line-height: 1.5;
+      color: var(--ink);
+      margin-bottom: 2rem;
+    }
+    .contact-details { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-row {
+      display: flex; flex-direction: column; gap: 0.2rem;
+    }
+    .contact-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--light);
+    }
+    .contact-val {
+      font-size: 0.92rem;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+      width: fit-content;
+    }
+    a.contact-val:hover { border-bottom-color: var(--ink); }
+    .contact-right {}
+    .form-group { margin-bottom: 1.5rem; }
+    .form-label {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 0.5rem;
+    }
+    .form-input {
+      width: 100%;
+      background: var(--off);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      padding: 0.8rem 1rem;
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input:focus { border-color: var(--ink); }
+    textarea.form-input { resize: vertical; min-height: 130px; }
+    .form-submit { margin-top: 0.5rem; }
+    .msg-status {
+      margin-top: 0.8rem;
+      font-size: 0.82rem;
+      color: var(--mid);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2.5rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-name {
+      font-family: var(--serif);
+      font-size: 0.95rem;
+      color: var(--ink);
+    }
+    .footer-copy {
+      font-size: 0.78rem;
+      color: var(--light);
+    }
+    .footer-socials {
+      display: flex; gap: 1.5rem;
+    }
+    .footer-socials a {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-socials a:hover { color: var(--ink); }
+
+    /* ── SCROLL TO TOP ── */
+    .scrollup {
+      position: fixed; bottom: 2rem; right: 2rem;
+      width: 40px; height: 40px;
+      background: var(--ink); color: var(--white);
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s;
+      font-size: 1rem;
+    }
+    .scrollup.show { opacity: 1; pointer-events: auto; }
+    .scrollup:hover { background: #333; }
+
+    /* ── ENTRANCE ANIMATIONS ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1.25rem 2rem; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex; flex-direction: column;
+        position: fixed; inset: 0;
+        background: var(--white);
+        justify-content: center; align-items: center;
+        gap: 2.5rem;
+        z-index: 99;
+      }
+      .nav-links.open a { font-size: 1.1rem; }
+      .nav-toggle { display: block; z-index: 100; position: relative; }
+
+      section { padding: 4rem 2rem; }
+      #home { padding: 7rem 2rem 4rem; }
+      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-photo { order: -1; }
+      .photo-frame { width: 240px; height: 300px; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-aside-photo, .about-aside-placeholder { max-width: 220px; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .skill-card:nth-child(3n) { border-right: 1px solid var(--rule); }
+      .skill-card:nth-child(2n) { border-right: none; }
+      .skill-card:nth-child(4), .skill-card:nth-child(5), .skill-card:nth-child(6) { border-bottom: 1px solid var(--rule); }
+      .skill-card:nth-child(5), .skill-card:nth-child(6) { border-bottom: none; }
+      .project-item { grid-template-columns: 1fr; gap: 1rem; }
+      .project-num { font-size: 1.5rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .cert-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
+      .edu-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    }
+
+    @media (max-width: 600px) {
+      .skills-grid { grid-template-columns: 1fr; }
+      .skill-card { border-right: none !important; }
+      .skill-card { border-bottom: 1px solid var(--rule) !important; }
+      .skill-card:last-child { border-bottom: none !important; }
+      .about-stats { flex-wrap: wrap; gap: 1.5rem; }
+    }
+  </style>
 </head>
-
 <body>
-    <div class="loader-body" id="loader">
-        <div class="loader"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#home" class="nav-logo">Prosper Ughakpoteni</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" onclick="closeMenu()">Home</a></li>
+      <li><a href="#about" onclick="closeMenu()">About</a></li>
+      <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+      <li><a href="#qualification" onclick="closeMenu()">Education</a></li>
+      <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+      <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+    </ul>
+    <div class="nav-toggle" id="navToggle" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
     </div>
-    <script type='text/javascript'>
-        document.body.onload = function () {
-            setTimeout(function () {
-                var preloader = document.getElementById('loader');
-                if (!preloader.classList.contains('done')) {
-                    preloader.classList.add('done');
-                }
-            }, 1000)
-        }
-    </script>
-    <!--==================== HEADER ====================-->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#" class="nav__logo">Prosper Ughakpoteni</a>
+  </nav>
 
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list grid">
-                    <li class="nav__item">
-                        <a href="#home" class="nav__link active-link">
-                            <i class="uil uil-estate nav__icon"></i> Home
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#about" class="nav__link">
-                            <i class="uil uil-user nav__icon"></i> About
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#skills" class="nav__link">
-                            <i class="uil uil-file-alt nav__icon"></i> Skills
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#qualification" class="nav__link">
-                            <i class="uil uil-award-alt nav__icon"></i> Qualifications
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#projects" class="nav__link">
-                            <i class="uil uil-award-alt nav__icon"></i> Projects
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#contact" class="nav__link">
-                            <i class="uil uil-message nav__icon"></i> Contact
-                        </a>
-                    </li>
-                </ul>
-                <i class="uil uil-times nav__close" id="nav-close"></i>
-            </div>
-            <div class="nav__btns">
-                <!-- Theme Change Button -->
-                <i class="uil uil-moon change-theme" id="theme-button"></i>
+  <main>
 
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class="uil uil-apps"></i>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <!--==================== MAIN ====================-->
-    <main class="main">
-        <!--==================== HOME ====================-->
-        <section class="home section" id="home">
-            <div class="home__container container grid">
-                <div class="home__content grid">
-                    <div class="home__social">
-                        <a href="https://www.linkedin.com/in/prosper-ughakpoteni/" target="_blank" class="home__social-icon">
-                            <i class="uil uil-linkedin"></i>
-                        </a>
-
-                        <a href="https://github.com/Prosperteni" target="_blank" class="home__social-icon">
-                            <i class="uil uil-github"></i>
-                        </a>
-                    </div>
-
-                    <div class="home__image">
-                        <svg class="home__blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <mask id="mask0" mask-type="alpha">
-                                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
-                                    130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
-                                    97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
-                                    0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
-                            </mask>
-                            <g mask="url(#mask0)">
-                                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
-                                    165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
-                                    129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
-                                    -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
-
-                                <image class="home__blob-img" x="10" y="5" xlink:href="./images/home.jpg" />
-                            </g>
-                        </svg>
-                    </div>
-
-                    <div class="home__data">
-                        <h1 class="home__title">Hello, I'm Prosper</h1>
-                        <h3 class="home__subtitle">Artificial Intelligence | Computer Vision | Robotics</h3>
-                        <p class="home__description">
-                            Undergraduate student specializing in AI and Computer Vision, with hands-on experience
-                            in robotics and real-world machine learning systems.
-                        </p>
-                        <a href="#contact" class="button button--flex">
-                            Contact Me <i class="uil uil-message button__icon"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!--==================== ABOUT ====================-->
-        <section class="about section" id="about">
-            <h2 class="section__title">About Me</h2>
-            <span class="section__subtitle">My Introduction</span>
-
-            <div class="about__container container grid">
-                <!-- <img src="/images/about.jpg" alt="" class="about__img"> -->
-                <div class="about__img">
-                    <svg class="about__blob" viewBox="0 0 550 592" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <mask id="maskBorder" mask-type="alpha">
-                            <path d="M263 48.1782C270.426 43.891 279.574 43.891 287 48.1782L501.157 
-                               171.822C508.583 176.109 513.157 184.032 513.157 192.606V439.894C513.157 
-                               448.468 508.583 456.391 501.157 460.678L287 584.322C279.574 588.609 
-                               270.426 588.609 263 584.322L48.843 460.678C41.4174 456.391 36.843 448.468 36.843 
-                               439.894V192.606C36.843 184.032 41.4174 176.109 48.843 171.822L263 48.1782Z"
-                                fill="black" />
-                        </mask>
-                        <g mask="url(#maskBorder)">
-                            <rect x="37" width="476" height="630" fill="url(#pattern2)" />
-
-                            <path d="M285 51.6423L499.157 175.286C505.345 178.859 509.157 185.461 509.157 
-                               192.606V439.894C509.157 447.039 505.345 453.641 499.157 457.214L285 
-                               580.858C278.812 584.43 271.188 584.43 265 580.858L50.843 457.214C44.655 453.641 
-                               40.843 447.039 40.843 439.894V192.606C40.843 185.461 44.655 178.859 50.843 
-                               175.286L265 51.6423C271.188 48.0697 278.812 48.0696 285 51.6423Z" stroke="black"
-                                stroke-width="10" />
-                        </g>
-
-                        <!-- <rect x="37" width="476" height="300" fill="url(#pattern3)"/> -->
-
-                        <defs>
-                            <pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                <use href="#imageBorder" transform="matrix(0.00143057 0 0 0.00108108 0.0404062 0)" />
-                            </pattern>
-
-                            <pattern id="pattern3" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                <use href="#imageBorder" transform="matrix(0.00143057 0 0 0.00226984 0.0404062 0)" />
-                            </pattern>
-
-                            <!-- Insert your profile (recommended size: 640 x 940) -->
-                            <image class="about__blob-img" id="imageBorder" width="640" height="940"
-                                href="./images/about.jpg" />
-                        </defs>
-                    </svg>
-                </div>
-
-                <div class="about__data">
-                    <p class="about__description">
-                        I'm an undergraduate student specializing in Artificial Intelligence and Computer Vision.<br>
-                        I have hands-on experience in robotics competitions and real-world ML applications,
-                        with a focus on building efficient and interpretable models.
-                    </p>
-                    <div class="about__buttons">
-                        <a download="" href="./pdf/Shubham_MSc_2025.pdf" class="button button--flex">
-                            Download CV<i class="uil uil-download-alt button__icon"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!--==================== SKILLS ====================-->
-        <section class="skills section" id="skills">
-            <h2 class="section__title">Skills</h2>
-            <span class="section__subtitle">My Technical Knowledge</span>
-            <div class="skills__container container grid">
-
-                <!--==================== SKILL 1 ====================-->
-                <div class="skills__content">
-                    <i class="uil uil-book-open skills__icon"></i>
-                    <h3 class="skills__title">Coursework</h3>
-                    <p class="skills__description">
-                        Artificial Intelligence, Machine Learning, Neural Networks, Text Mining
-                    </p>
-
-                    <span class="button button--flex button--small button--link education__button" id="skills__button">
-                        View More <i class="uil uil-arrow-right button__icon"></i>
-                    </span>
-                    
-                    <div class="education__modal" id="skills__modal">
-                        <div class="skills__modal-content">
-                            <h4 class="skills__modal-title">Coursework</h4>
-                            <i class="uil uil-times education__modal-close"></i>
-                            <div class="two-columns">
-                                <ul class="skills__modal-skillss grid column">
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Artificial Intelligence
-                                        </p>
-                                    </li>
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Neural Networks
-                                        </p>
-                                    </li>
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Data Structures
-                                        </p>
-                                    </li>
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Probability & Statistics
-                                        </p>
-                                    </li>
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Calculus
-                                        </p>
-                                    </li>
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Numerical Methods
-                                        </p>
-                                    </li>
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Operating Systems
-                                        </p>
-                                    </li>
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Network Programming
-                                        </p>
-                                    </li>
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Internet of Things
-                                        </p>
-                                    </li>
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Theory of Computation
-                                        </p>
-                                    </li>
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Computer Architecture
-                                        </p>
-                                    </li>
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Linux Programming
-                                        </p>
-                                    </li>
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Information Security
-                                        </p>
-                                    </li>
-                                </ul>
-
-                                <ul class="skills__modal-skillss grid column">
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Machine Learning
-                                        </p>
-                                    </li>
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Text Mining
-                                        </p>
-                                    </li>
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            DBMS
-                                        </p>
-                                    </li>
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Analysis of Algorithms
-                                        </p>
-                                    </li>
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Discrete Mathematics
-                                        </p>
-                                    </li>
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Algebra
-                                        </p>
-                                    </li>
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Computer Networks
-                                        </p>
-                                    </li>
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Software Engineering
-                                        </p>
-                                    </li>
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Mobile AdHoc Networks
-                                        </p>
-                                    </li>
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Compiler Design
-                                        </p>
-                                    </li>
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Computer Graphics
-                                        </p>
-                                    </li>
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Image Processing
-                                        </p>
-                                    </li>
-                                    <li class="skills__modal-skills">
-                                        <p>
-                                            <i class="uil uil-check-circle education__modal-icon"></i>
-                                            Internet Technologies
-                                        </p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-                
-                <!--==================== SKILL 2 ====================-->
-                <div class="skills__content">
-                    <i class="uil uil-arrow skills__icon"></i>
-                    <h3 class="skills__title">AI & Machine Learning</h3>
-                    <p class="skills__description">
-                        PyTorch, scikit-learn, NumPy, pandas, model training, evaluation, and optimization
-                    </p>
-                </div>
-                
-                <!--==================== SKILL 3 ====================-->
-                <div class="skills__content">
-                    <i class="uil uil-brain skills__icon"></i>
-                    <h3 class="skills__title">Data Science & <br> Machine Learning</h3>
-                    <p class="skills__description">
-                        pandas, numpy, scikit-learn, NLTK, OpenCV, matplotlib, seaborn
-                    </p>
-                </div>
-                
-                <!--==================== SKILL 4 ====================-->
-                <div class="skills__content">
-                    <i class="uil uil-globe skills__icon"></i>
-                    <h3 class="skills__title">Web Development</h3>
-                    <p class="skills__description">
-                        HTML5, CSS, responsive design, basic frontend development
-                    </p>
-                </div>
-                
-                <!--==================== SKILL 5 ====================-->
-                <div class="skills__content">
-                    <i class="uil uil-laptop skills__icon"></i>
-                    <h3 class="skills__title">IDEs</h3>
-                    <p class="skills__description">
-                        VS Code, PyCharm, IntelliJ IDEA, Eclipse, Jupyter, Google Colab, Anaconda
-                    </p>
-                </div>
-                
-                <!--==================== SKILL 6 ====================-->
-                <div class="skills__content">
-                    <i class="uil uil-eye skills__icon"></i>
-                    <h3 class="skills__title">Computer Vision</h3>
-                    <p class="skills__description">
-                        OpenCV, image processing, object detection, feature extraction
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!--==================== QUALIFICATION ====================-->
-        <section class="qualification section" id="qualification">
-            <h2 class="section__title">Qualifications</h2>
-            <span class="section__subtitle">My Personal Journey</span>
-
-            <div class="qualification__container container">
-                <div class="qualification__tabs">
-                    <div class="qualification__button button--flex qualification__active" data-target="#education">
-                        <i class="uil uil-graduation-cap qualification__icon"></i>
-                        Education
-                    </div>
-
-                    <div class="qualification__button button--flex" data-target="#certification">
-                        <i class="uil uil-notebooks qualification_icon"></i>
-                        Certifications
-                    </div>
-                </div>
-
-                <div class="qualification__sections">
-                    <!--==================== QUALIFICATION CONTENT 1 ====================-->
-                    <div class="qualification__content qualification__active" data-content id="education">
-                        <!--==================== EDUCATION 1 ====================-->
-                        <div class="qualification__education">
-                            <div>
-                                <h3 class="qualification__title">B.Sc. in Artificial Intelligence</h3>
-                                <span class="qualification__subtitle">Guilin University of Electronic Technology <br> Guilin, China
-                                    </span>
-                                <div class="qualification__calender">
-                                    <i class="uil uil-calendar-alt"></i>
-                                    2024 - 2028
-                                </div>
-                                <span class="button button--flex button--small button--link education__button">
-                                        View More <i class="uil uil-arrow-right button__icon"></i>
-                                    </span>
-                                    <div class="education__modal">
-                                        <div class="education__modal-content">
-                                            <h4 class="education__modal-title">Post-graduation Summary</h4>
-                                            <i class="uil uil-times education__modal-close"></i>
-                                            <ul class="education__modal-educations grid">
-                                                <li class="education__modal-education">
-                                                    <i class="uil uil-check-circle education__modal-icon"></i>
-                                                    <p>Awarded BHU Medal for securing 1st rank</p>
-                                                </li>
-                                                <li class="education__modal-education">
-                                                    <i class="uil uil-check-circle education__modal-icon"></i>
-                                                    <p>Scored 8.9 CGPA</p>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                            </div>
-
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-                        </div>
-
-                        <!--==================== EDUCATION 2 ====================-->
-                        <div class="qualification__education">
-                            <div></div>
-
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-
-                            <div>
-                                <h3 class="qualification__title">B.Sc.(Honours) in Computer Science</h3>
-                                <span class="qualification__subtitle">Visva-Bharati University <br> Santiniketan, West
-                                    Bengal</span>
-                                <div class="qualification__calender">
-                                    <i class="uil uil-calendar-alt"></i>
-                                    2020 - 2023
-                                </div>
-                                <span class="button button--flex button--small button--link education__button">
-                                    View More <i class="uil uil-arrow-right button__icon"></i>
-                                </span>
-                                <div class="education__modal">
-                                    <div class="education__modal-content">
-                                        <h4 class="education__modal-title">Under-graduation Summary</h4>
-                                        <i class="uil uil-times education__modal-close"></i>
-                                        <ul class="education__modal-educations grid">
-                                            <li class="education__modal-education">
-                                                <i class="uil uil-check-circle education__modal-icon"></i>
-                                                <p>Core: Computer Science, Elective: Mathematics</p>
-                                            </li>
-                                            <li class="education__modal-education">
-                                                <i class="uil uil-check-circle education__modal-icon"></i>
-                                                <p>Scored 8.83 CGPA</p>
-                                            </li>
-                                            <li class="education__modal-education">
-                                                <i class="uil uil-check-circle education__modal-icon"></i>
-                                                <p>1st Rank Holder</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--==================== EDUCATION 3 ====================-->
-                        <div class="qualification__education">
-                            <div>
-                                <h3 class="qualification__title">Class XII (Science), CBSE</h3>
-                                <span class="qualification__subtitle">Jawahar Navodaya Vidyalaya <br> Bokaro, 
-                                    Jharkhand</span>
-                                <div class="qualification__calender">
-                                    <i class="uil uil-calendar-alt"></i>
-                                    2020
-                                </div><span class="button button--flex button--small button--link education__button">
-                                    View More <i class="uil uil-arrow-right button__icon"></i>
-                                </span>
-                                <div class="education__modal">
-                                    <div class="education__modal-content">
-                                        <h4 class="education__modal-title">Class 12th Summary</h4>
-                                        <i class="uil uil-times education__modal-close"></i>
-                                        <ul class="education__modal-educations grid">
-                                            <li class="education__modal-education">
-                                                <i class="uil uil-check-circle education__modal-icon"></i>
-                                                <p>Subjects studied: English, Computer Science, Mathematics, Physics,
-                                                    Chemistry</p>
-                                            </li>
-                                            <li class="education__modal-education">
-                                                <i class="uil uil-check-circle education__modal-icon"></i>
-                                                <p>Scored 95.2%</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-                        </div>
-
-                        <!--==================== EDUCATION 4 ====================-->
-                        <div class="qualification__education">
-                            <div></div>
-
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <!-- <span class="qualification__line"></span> -->
-                            </div>
-
-                            <div>
-                                <h3 class="qualification__title">Class X, CBSE</h3>
-                                <span class="qualification__subtitle">Jawahar Navodaya Vidyalaya <br> Bokaro,
-                                    Jharkhand</span>
-                                <div class="qualification__calender">
-                                    <i class="uil uil-calendar-alt"></i>
-                                    2018
-                                </div><span class="button button--flex button--small button--link education__button">
-                                    View More <i class="uil uil-arrow-right button__icon"></i>
-                                </span>
-                                <div class="education__modal">
-                                    <div class="education__modal-content">
-                                        <h4 class="education__modal-title">Class 10th Summary</h4>
-                                        <i class="uil uil-times education__modal-close"></i>
-                                        <ul class="education__modal-educations grid">
-                                            <li class="education__modal-education">
-                                                <i class="uil uil-check-circle education__modal-icon"></i>
-                                                <p>Subjects studied: English, Hindi, Mathematics, Science, Social
-                                                    Science</p>
-                                            </li>
-                                            <li class="education__modal-education">
-                                                <i class="uil uil-check-circle education__modal-icon"></i>
-                                                <p>Scored 92.4%</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!--==================== QUALIFICATION CONTENT 2 ====================-->
-                    <div class="qualification__content container grid" data-content id="certification">
-                        <!--==================== CERTIFICATION 1 ====================-->
-                            <div class="qualification__certification">
-                                <div>
-                                    <img src="./images/Mastering_Artificial_Intelligence_Certificate_of_Completion.jpg" alt="" class="qualification__logo">
-                                </div>
-                                <div>
-                                    <h3 class="qualification__title">Data Science for Engineers</h3>
-                                    <span class="qualification__subtitle">NPTEL</span>
-                                    <p class="qualification__skills">Skills: R, Algebra, Statistics, Optimization, 
-                                        Regression, Classification, Clustering</p>
-                                </div>
-                            </div>
-                        <!--==================== CERTIFICATION 2 ====================-->
-                        <a href="https://archive.nptel.ac.in/content/noc/NOC24/SEM1/Ecertificates/106/noc24-cs45/Course/NPTEL24CS45S55880016430170211.pdf"
-                            target="_blank" class="qualification__view">
-                            <div class="qualification__certification">
-                                <div>
-                                    <img src="./images/nptel-logo.png" alt="" class="qualification__logo">
-                                </div>
-                                <div>
-                                    <h3 class="qualification__title">Introduntion to Soft Computing</h3>
-                                    <span class="qualification__subtitle">NPTEL</span>
-                                    <p class="qualification__skills">Skills: Fuzzy Logic, Fuzzy Systems, ANN, Genetic Algorithms</p>
-                                </div>
-                            </div>
-                        </a>
-                        <!--==================== CERTIFICATION 3 ====================-->
-                        <a href="https://archive.nptel.ac.in/content/noc/NOC24/SEM1/Ecertificates/106/noc24-cs45/Course/NPTEL24CS45S55880016430170211.pdf"
-                            target="_blank" class="qualification__view">
-                            <div class="qualification__certification">
-                                <div>
-                                    <img src="./images/nptel-logo.png" alt="" class="qualification__logo">
-                                </div>
-                                <div>
-                                    <h3 class="qualification__title"> Programming, Data Structures and Algorithms using Python</h3>
-                                    <span class="qualification__subtitle">NPTEL</span>
-                                    <p class="qualification__skills">Skills: Python, Data Structures, Algorithms</p>
-                                </div>
-                            </div>
-                        </a>
-                        <!--==================== CERTIFICATION 4 ====================-->
-                        <a href="https://archive.nptel.ac.in/content/noc/NOC24/SEM1/Ecertificates/106/noc24-cs44/Course/NPTEL24CS44S116970012230723574.pdf"
-                            target="_blank" class="qualification__view">
-                            <div class="qualification__certification">
-                                <div>
-                                    <img src="./images/nptel-logo.png" alt="" class="qualification__logo">
-                                </div>
-                                <div>
-                                    <h3 class="qualification__title"> Programming in Modern C++</h3>
-                                    <span class="qualification__subtitle">NPTEL</span><br><br>
-                                    <p class="qualification__skills">Skills: C++, OOPs</p>
-                                </div>
-                            </div>
-                        </a>
-                        <!--==================== CERTIFICATION 5 ====================-->
-                        <a href="https://www.freecodecamp.org/certification/shubhamdey01/responsive-web-design/"
-                            target="_blank" class="qualification__view">
-                            <div class="qualification__certification">
-                                <div>
-                                    <img src="./images/fcc.png" alt="" class="qualification__logo">
-                                </div>
-                                <div>
-                                    <h3 class="qualification__title">Scientific Computing with Python</h3>
-                                    <span class="qualification__subtitle">freeCodeCamp</span>
-                                    <p class="qualification__skills">Skills: Python, OPPs, Data Structures, 
-                                        Regular Expressions, Problem Solving</p>
-                                </div>
-                            </div>
-                        </a>
-                        <!--==================== CERTIFICATION 6 ====================-->
-                        <a href="https://olympus1.mygreatlearning.com/course_certificate/MUTPHDVL/" target="_blank"
-                            class="qualification__view">
-                            <div class="qualification__certification">
-                                <div>
-                                    <img src="./images/gl.png" alt="" class="qualification__logo">
-                                </div>
-                                <div>
-                                    <h3 class="qualification__title">Git Tutorial</h3>
-                                    <span class="qualification__subtitle">Great Learning</span>
-                                    <p class="qualification__skills">Skills: Version-control, Git, GitHub</p>
-                                </div>
-                            </div>
-                        </a>
-                        <!--==================== CERTIFICATION 7 ====================-->
-                        <a href="https://www.freecodecamp.org/certification/shubhamdey01/responsive-web-design/"
-                            target="_blank" class="qualification__view">
-                            <div class="qualification__certification">
-                                <div>
-                                    <img src="./images/fcc.png" alt="" class="qualification__logo">
-                                </div>
-                                <div>
-                                    <h3 class="qualification__title">Responsive Web Design</h3>
-                                    <span class="qualification__subtitle">freeCodeCamp</span>
-                                    <p class="qualification__skills">Skills: Web-design, HTML5, CSS</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!--==================== PROJECTS ====================-->
-        <section class="projects section" id="projects">
-            <h2 class="section__title">Projects</h2>
-            <span class="section__subtitle">Most Recent project</span>
-
-            <div class="projects__container container grid">
-                
-                <!--==================== PROJECT 2 ====================-->
-                <article class="projects__card">
-                    <div class="projects__image">
-                        <img src="./images/textSummarization.png" alt="Project 2" class="projects__img">
-                        <a href="https://github.com/Prosperteni/CardioTransferX" target="_blank" class="projects__button button">
-                            <i class="uil uil-github-alt"></i>
-                        </a>
-                    </div>
-                    <div class="projects__content">
-                        <br>
-                        <!-- <h3 class="projects__subtitle">Python, scikit-learn, Pandas, NLTK, Streamlit</h3> -->
-                        <h2 class="projects__title">A Comparitive Study of Text Summarization Techniques</h2>
-                        <p class="projects__description">This project focuses on evaluating six abstractive summarization 
-                            models (Seq2Seq with Attention, BERTSUMABS, BART, T5, PEGASUS, XLNet) on benchmark datasets 
-                            (CNN/DailyMail, XSum, Gigaword). The models were analyzed using ROUGE and BLEU metrics to 
-                            measure fluency, coherence, and content accuracy.
-                        </p>
-                    </div>
-                    <div class="projects__buttons">
-                        <a href="https://github.com/shubhamdey01/Minor-Project.git" target="_blank" class="projects__link">
-                            <i class="uil uil-github-alt"></i> GitHub Repo
-                        </a>
-                        <!-- <a href="https://sentiment-analysis-twitter.streamlit.app/" target="_blank" class="projects__link">
-                            <i class="uil uil-link-alt"></i> Live
-                        </a> -->
-                    </div>
-                </article>
-
-                <!--==================== PROJECT 1 ====================-->
-                <article class="projects__card">
-                    <div class="projects__image">
-                        <img src="./images/sentimentAnalysis.png" alt="Project 1" class="projects__img">
-                        <a href="https://github.com/Prosperteni/CardioTransferX" target="_blank" class="projects__button button">
-                            <i class="uil uil-github-alt"></i>
-                        </a>
-                    </div>
-                    <div class="projects__content">
-                        <br>
-                        <!-- <h3 class="projects__subtitle">Python, scikit-learn, Pandas, NLTK, Streamlit</h3> -->
-                        <h2 class="projects__title">CardioTransferX: Cross-Dataset Transfer Learning with Explainable AI for Heart Disease Prediction</h2>
-                        <p class="projects__description">This project develops a transfer learning framework to 
-                            enhance heart disease prediction models that leverages knowledge from multiple datasets
-                            to mitigate overfitting and improve generalizability. The project involves fine-tuning 
-                            models on large and small datasets, utilizing ML models and Deep Learning models, and employing 
-                            SHAP for interpretability.
-                        </p>
-                    </div>
-                </article>
-                
-                <!--==================== PROJECT 2 ====================-->
-                <!-- <article class="projects__card">
-                    <div class="projects__image">
-                        <img src="/images/Untitled.jpeg" alt="Project 2" class="projects__img">
-
-                        <a href="#" class="projects__button button">
-                            <i class="uil uil-external-link-alt button__icon"></i>
-                        </a>
-                    </div>
-                    <div class="projects__content"> -->
-                        <!-- <h3 class="projects__subtitle"></h3> -->
-                        <!-- <h2 class="projects__title">Project 2</h2>
-                        <p class="projects__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Ipsum magni alias autem ratione beatae dolore repellendus optio deserunt temporibus 
-                            saepe omnis, perspiciatis ad tempore sunt distinctio, pariatur non harum eligendi!
-                        </p>
-                    </div>
-                    <div class="projects__buttons">
-                        <a href="#" target="_blank" class="projects__link">
-                            <i class="uil uil-github-alt"></i> GitHub Repo
-                        </a>
-                        <a href="#" target="_blank" class="projects__link">
-                            <i class="uil uil-link-alt"></i> Live
-                        </a>
-                    </div>
-                </article> -->
-            </div>
-        </section>
-
-        <!--==================== CONTACT ME ====================-->
-        <section class="contact section" id="contact">
-            <h2 class="section__title">Contact Me</h2>
-            <span class="section__subtitle">Get in Touch</span>
-
-            <div class="contact__container container grid">
-                <div class="contact__content">
-                    <h3 class="contact__title">Contact Details</h3>
-
-                    <div class="contact__info">
-                        <div class="contact__card">
-                            <i class="uil uil-fast-mail contact__card-icon"></i>
-                            <h3 class="contact__card-title">Email</h3>
-                            <span class="contact__card-data">prosperteni580@gmail.com</span>
-                            <a href="mailto:prosperteni580@gmail.com" target="_blank" class="contact__button">
-                                Write Me <i class="uil uil-arrow-right contact__button-icon"></i>
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-                
-                <div class="contact__content">
-                    <h3 class="contact__title">Write me your message</h3>
-
-                    <form action="" class="contact__form" id="contact__form">
-                        <div class="contact__form-div">
-                            <label for="" class="contact__form-tag">Name</label>
-                            <input type="text" name="user_name" required placeholder="Enter your name" class="contact__form-input">
-                        </div>
-                        
-                        <div class="contact__form-div">
-                            <label for="" class="contact__form-tag">Mail</label>
-                            <input type="email" name="user_email" required placeholder="Enter your email" class="contact__form-input">
-                        </div>
-                        
-                        <div class="contact__form-div contact__form-area">
-                            <label for="" class="contact__form-tag">Message</label>
-                            <textarea name="user_message" id="" cols="30" rows="10" required placeholder="Enter your message" class="contact__form-input"></textarea>
-                        </div>
-
-                        <button class="contact__form-button button button--flex" type="submit">
-                            Send Message <i class="uil uil-message button__icon"></i>
-                        </button>
-                        <p class="contact__message" id="contact__message"></p>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!--==================== FOOTER ====================-->
-    <footer class="footer">
-        <div class="footer__bg">
-            <div class="footer__container container grid">
-                <div>
-                    <h1 class="footer__title">Prosper Ughakpoteni</h1>
-                    <span class="footer__subtitle">Artificial Intelligence | Computer Vision | Undergraduate</span>
-                </div>
-                <div class="footer__socials">
-                    <a href="https://x.com/prosper_teni" target="_blank" class="footer__social">
-                        <i class="uil uil-twitter"></i>
-                    </a>
-                    <a href="https://github.com/Prosperteni" target="_blank" class="footer__social">
-                        <i class="uil uil-github"></i>
-                    </a>
-                    <a href="https://www.instagram.com/teni25_/" target="_blank" class="footer__social">
-                        <i class="uil uil-instagram"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/prosper-ughakpoteni/" target="_blank" class="footer__social">
-                        <i class="uil uil-linkedin"></i>
-                    </a>
-                </div>
-            </div>
-            <p class="footer__copy">&#169; <a href="https://github.com/Prosperteni">Prosperteni.github.io</a>. All
-                rights reserved</p>
+    <!-- HOME -->
+    <section id="home">
+      <div class="hero-inner section-inner">
+        <div class="hero-text">
+          <span class="hero-tag">AI · Computer Vision · Robotics</span>
+          <h1 class="hero-name">Prosper<br><em>Ughakpoteni</em></h1>
+          <p class="hero-desc">
+            Undergraduate specialising in Artificial Intelligence and Computer Vision.
+            Building interpretable, efficient, and real-world ML systems.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Get in Touch</a>
+            <a href="#projects" class="btn btn-outline">View Projects</a>
+          </div>
+          <div class="hero-socials">
+            <a href="https://www.linkedin.com/in/prosper-ughakpoteni/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/Prosperteni" target="_blank">GitHub</a>
+            <a href="https://x.com/prosper_teni" target="_blank">Twitter</a>
+          </div>
         </div>
-    </footer>
 
-    <!--==================== SCROLL TOP ====================-->
-    <a href="#" class="scrollup" id="scroll-up">
-        <i class="uil uil-arrow-up scrollup__icon"></i>
-    </a>
+        <div class="hero-photo">
+          <div class="photo-frame">
+            <!-- Replace with: <img src="./images/home.jpg" alt="Prosper Ughakpoteni"> -->
+            <img src="./images/home.jpg" alt="Prosper Ughakpoteni" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'><svg width=\'40\' height=\'40\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><circle cx=\'12\' cy=\'8\' r=\'4\'/><path d=\'M4 20c0-4 3.6-7 8-7s8 3 8 7\'/></svg><p>Your Photo</p></div>'">
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!--==================== MAIN JS ====================-->
-    <script src="./js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="./js/contact.js"></script>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-inner">
+        <span class="section-label">01 — About</span>
+        <h2 class="section-title">Who I am</h2>
+        <div class="about-grid fade-in">
+          <div class="about-aside">
+            <!-- Replace with: <img src="./images/about.jpg" alt="Prosper" class="about-aside-photo"> -->
+            <img src="./images/about.jpg" alt="Prosper" class="about-aside-photo" onerror="this.parentElement.innerHTML='<div class=\'about-aside-placeholder\'><p>Photo</p></div>'">
+          </div>
+          <div class="about-body">
+            <p class="about-intro">
+              I build AI that is not just accurate — but understandable, practical, and reliable.
+            </p>
+            <p class="about-text">
+              I'm an undergraduate student at the Guilin University of Electronic Technology, China, specialising in Artificial Intelligence. My work spans transfer learning, explainable AI, computer vision, and robotics — with a focus on making models that generalise well and can be trusted in real-world settings.
+            </p>
+            <p class="about-text">
+              Outside of coursework, I actively compete in robotics, build production-ready ML pipelines, and contribute to research on interpretability. I'm always looking for meaningful problems to solve with intelligent systems.
+            </p>
+            <div class="about-stats">
+              <div>
+                <span class="stat-num">2</span>
+                <span class="stat-label">Research Projects</span>
+              </div>
+              <div>
+                <span class="stat-num">6+</span>
+                <span class="stat-label">ML Frameworks</span>
+              </div>
+              <div>
+                <span class="stat-num">2024</span>
+                <span class="stat-label">Started at GUET</span>
+              </div>
+            </div>
+            <a download="" href="./pdf/Prosper_Ughakpoteni_Resume.pdf" class="btn btn-outline">
+              Download CV &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-inner">
+        <span class="section-label">02 — Skills</span>
+        <h2 class="section-title">What I work with</h2>
+        <div class="skills-grid fade-in">
+          <div class="skill-card">
+            <span class="skill-num">01</span>
+            <p class="skill-name">AI & Machine Learning</p>
+            <p class="skill-desc">PyTorch, TensorFlow, scikit-learn — from training to production. Transfer learning, model optimisation, and evaluation.</p>
+          </div>
+          <div class="skill-card">
+            <span class="skill-num">02</span>
+            <p class="skill-name">Computer Vision</p>
+            <p class="skill-desc">OpenCV, CNN architectures, object detection, feature extraction, image segmentation, and real-time visual processing.</p>
+          </div>
+          <div class="skill-card">
+            <span class="skill-num">03</span>
+            <p class="skill-name">Robotics</p>
+            <p class="skill-desc">ROS, autonomous navigation, sensor fusion, embedded systems, and robot control for competition and research environments.</p>
+          </div>
+          <div class="skill-card">
+            <span class="skill-num">04</span>
+            <p class="skill-name">Programming</p>
+            <p class="skill-desc">Python (primary), C++, Java, SQL, Bash. Comfortable across the stack from data pipelines to low-level systems code.</p>
+          </div>
+          <div class="skill-card">
+            <span class="skill-num">05</span>
+            <p class="skill-name">Data Science</p>
+            <p class="skill-desc">Pandas, NumPy, Matplotlib, Seaborn. Statistical analysis, SHAP interpretability, ROUGE/BLEU evaluation.</p>
+          </div>
+          <div class="skill-card">
+            <span class="skill-num">06</span>
+            <p class="skill-name">Tools & Workflow</p>
+            <p class="skill-desc">Git, Linux, Docker, Jupyter, Google Colab, VS Code, PyCharm. Clean, reproducible, version-controlled research environments.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="qualification">
+      <div class="section-inner">
+        <span class="section-label">03 — Education</span>
+        <h2 class="section-title">Background</h2>
+
+        <div class="edu-list fade-in">
+          <div class="edu-item">
+            <span class="edu-year">2024 – 2028</span>
+            <div>
+              <p class="edu-degree">B.Sc. Artificial Intelligence</p>
+              <p class="edu-school">Guilin University of Electronic Technology — Guilin, China</p>
+              <p class="edu-detail">Focusing on machine learning, computer vision, neural networks, and robotics. Active in hands-on research and real-world project development.</p>
+            </div>
+          </div>
+          <div class="edu-item">
+            <span class="edu-year">Completed</span>
+            <div>
+              <p class="edu-degree">High School — Primegate High School</p>
+              <p class="edu-school">International Curriculum · STEM Foundation</p>
+              <p class="edu-detail">Strong academic base in mathematics, physics, chemistry, and computer science, underpinning my engineering approach to AI.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 3.5rem;">
+          <span class="section-label" style="margin-bottom: 1.5rem; display: block;">Certifications & Self-Study</span>
+          <div class="cert-grid fade-in">
+            <div class="cert-card">
+              <p class="cert-name">Transfer Learning & Explainable AI</p>
+              <p class="cert-org">Research / Self-Directed Study</p>
+            </div>
+            <div class="cert-card">
+              <p class="cert-name">Computer Vision Specialisation</p>
+              <p class="cert-org">Hands-on Project Experience</p>
+            </div>
+            <div class="cert-card">
+              <p class="cert-name">Robotics & Autonomous Systems</p>
+              <p class="cert-org">Competition & Lab Work</p>
+            </div>
+            <div class="cert-card">
+              <p class="cert-name">Deep Learning & Neural Networks</p>
+              <p class="cert-org">Advanced Coursework</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-inner">
+        <span class="section-label">04 — Projects</span>
+        <h2 class="section-title">Selected work</h2>
+        <div class="projects-list fade-in">
+
+          <div class="project-item">
+            <span class="project-num">01</span>
+            <div>
+              <h3 class="project-title">CardioTransferX</h3>
+              <div class="project-tags">
+                <span class="tag">Transfer Learning</span>
+                <span class="tag">Explainable AI</span>
+                <span class="tag">PyTorch</span>
+                <span class="tag">SHAP</span>
+              </div>
+              <p class="project-desc">A cross-dataset transfer learning framework for heart disease prediction. Fine-tunes models across multiple clinical datasets to reduce overfitting and improve generalisation. SHAP analysis provides clinically meaningful interpretability.</p>
+            </div>
+            <a href="https://github.com/Prosperteni/CardioTransferX" target="_blank" class="project-link">
+              GitHub &rarr;
+            </a>
+          </div>
+
+          <div class="project-item">
+            <span class="project-num">02</span>
+            <div>
+              <h3 class="project-title">Abstractive Text Summarisation — Model Comparison</h3>
+              <div class="project-tags">
+                <span class="tag">NLP</span>
+                <span class="tag">BART</span>
+                <span class="tag">T5</span>
+                <span class="tag">PEGASUS</span>
+                <span class="tag">XLNet</span>
+              </div>
+              <p class="project-desc">Comparative evaluation of six abstractive summarisation models (Seq2Seq, BERTSUM, BART, T5, PEGASUS, XLNet) on CNN/DailyMail, XSum, and Gigaword. Assessed using ROUGE and BLEU metrics for fluency, coherence, and accuracy.</p>
+            </div>
+            <a href="https://github.com/Prosperteni" target="_blank" class="project-link">
+              GitHub &rarr;
+            </a>
+          </div>
+
+          <div class="project-item">
+            <span class="project-num">03</span>
+            <div>
+              <h3 class="project-title">Autonomous Robot Navigation & Vision</h3>
+              <div class="project-tags">
+                <span class="tag">Robotics</span>
+                <span class="tag">Computer Vision</span>
+                <span class="tag">ROS</span>
+                <span class="tag">OpenCV</span>
+              </div>
+              <p class="project-desc">Real-world robotics system combining visual perception and autonomous path planning. Implements object detection, sensor fusion, and intelligent control for navigation in dynamic environments.</p>
+            </div>
+            <a href="https://github.com/Prosperteni" target="_blank" class="project-link">
+              GitHub &rarr;
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-inner">
+        <span class="section-label">05 — Contact</span>
+        <h2 class="section-title">Let's talk</h2>
+        <div class="contact-grid fade-in">
+          <div class="contact-left">
+            <p class="contact-intro">
+              Interested in collaborating, have a research idea, or just want to connect? I'd love to hear from you.
+            </p>
+            <div class="contact-details">
+              <div class="contact-row">
+                <span class="contact-label">Email</span>
+                <a href="mailto:prosperteni580@gmail.com" class="contact-val">prosperteni580@gmail.com</a>
+              </div>
+              <div class="contact-row">
+                <span class="contact-label">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/prosper-ughakpoteni/" target="_blank" class="contact-val">Prosper Ughakpoteni</a>
+              </div>
+              <div class="contact-row">
+                <span class="contact-label">GitHub</span>
+                <a href="https://github.com/Prosperteni" target="_blank" class="contact-val">Prosperteni</a>
+              </div>
+              <div class="contact-row">
+                <span class="contact-label">Based in</span>
+                <span class="contact-val">Guilin, China</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-right">
+            <form id="contact__form">
+              <div class="form-group">
+                <label class="form-label">Name</label>
+                <input type="text" name="user_name" class="form-input" placeholder="Your full name" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email</label>
+                <input type="email" name="user_email" class="form-input" placeholder="your@email.com" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Message</label>
+                <textarea name="user_message" class="form-input" placeholder="Tell me what you're working on..." required></textarea>
+              </div>
+              <div class="form-submit">
+                <button type="submit" class="btn btn-primary">Send Message &rarr;</button>
+                <p class="msg-status" id="contact__message"></p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-name">Prosper Ughakpoteni</span>
+    <div class="footer-socials">
+      <a href="https://www.linkedin.com/in/prosper-ughakpoteni/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/Prosperteni" target="_blank">GitHub</a>
+      <a href="https://x.com/prosper_teni" target="_blank">Twitter</a>
+      <a href="https://www.instagram.com/teni25_/" target="_blank">Instagram</a>
+    </div>
+    <span class="footer-copy">&copy; 2026 All rights reserved</span>
+  </footer>
+
+  <!-- SCROLL TOP -->
+  <a href="#home" class="scrollup" id="scrollup" aria-label="Scroll to top">&#8679;</a>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="./js/contact.js"></script>
+
+  <script>
+    // Mobile nav
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+    function closeMenu() {
+      document.getElementById('navLinks').classList.remove('open');
+    }
+
+    // Scroll-up button
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('scrollup');
+      if (window.scrollY > 400) btn.classList.add('show');
+      else btn.classList.remove('show');
+    });
+
+    // Fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
 </body>
-
 </html>

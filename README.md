@@ -83,12 +83,12 @@ A research-driven framework that transfers knowledge across heterogeneous medica
 ## 📊 GitHub Statistics
 
 <p align="center">
-  <img height="180em" src="https://github-readme-stats-sigma-five.vercel.app/api?username=Prosperteni&show_icons=true&theme=tokyonight" />
+  <img height="180em" src="https://github-readme-stats-sigma-five.vercel.app/api?username=Prosperteni&show_icons=true&theme=tokyonight&v=2" />
   <img height="180em" src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Prosperteni&layout=compact&theme=tokyonight" />
 </p>
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com?user=Prosperteni&theme=tokyonight" />
+    <img src="https://streak-stats.demolab.com?user=Prosperteni&theme=tokyonight" />
 </p>
 
 ---

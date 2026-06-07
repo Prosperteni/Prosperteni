@@ -22,6 +22,19 @@
       --sans:    'DM Sans', system-ui, sans-serif;
     }
 
+    /* ── DARK MODE ── */
+    [data-theme="dark"] {
+      --white:  #111111;
+      --off:    #1a1a1a;
+      --ink:    #f0efec;
+      --mid:    #999999;
+      --light:  #555555;
+      --rule:   #2a2a2a;
+      --accent: #f0efec;
+    }
+
+    *, *::before, *::after { transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
+
     html { scroll-behavior: smooth; }
 
     body {
@@ -42,6 +55,29 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--rule);
     }
+    [data-theme="dark"] nav {
+      background: rgba(17,17,17,0.92);
+    }
+
+    /* ── THEME TOGGLE ── */
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      color: var(--mid);
+      font-size: 1rem;
+      transition: border-color 0.2s, color 0.2s;
+      flex-shrink: 0;
+    }
+    .theme-toggle:hover { border-color: var(--ink); color: var(--ink); }
+    .theme-toggle .icon-sun  { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    [data-theme="dark"] .theme-toggle .icon-sun  { display: block; }
+    [data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+    .nav-right { display: flex; align-items: center; gap: 1.5rem; }
     .nav-logo {
       font-family: var(--serif);
       font-size: 1.1rem;
@@ -602,8 +638,14 @@
       <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
       <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
     </ul>
-    <div class="nav-toggle" id="navToggle" onclick="toggleMenu()" aria-label="Menu">
-      <span></span><span></span><span></span>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <span class="icon-moon">☾</span>
+        <span class="icon-sun">☀</span>
+      </button>
+      <div class="nav-toggle" id="navToggle" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
     </div>
   </nav>
 
@@ -739,7 +781,7 @@
           <div class="edu-item">
             <span class="edu-year">Completed</span>
             <div>
-              <p class="edu-degree">High School — Primegate High School</p>
+              <p class="edu-degree">High School — Science Track</p>
               <p class="edu-school">International Curriculum · STEM Foundation</p>
               <p class="edu-detail">Strong academic base in mathematics, physics, chemistry, and computer science, underpinning my engineering approach to AI.</p>
             </div>
@@ -908,6 +950,21 @@
   <script src="./js/contact.js"></script>
 
   <script>
+    // ── THEME TOGGLE ──
+    const html = document.documentElement;
+    const toggleBtn = document.getElementById('themeToggle');
+
+    // Load saved preference
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', savedTheme);
+
+    toggleBtn.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+
     // Mobile nav
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('open');

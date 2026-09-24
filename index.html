@@ -403,13 +403,13 @@
     #projects { background: var(--off); }
     .projects-list { display: flex; flex-direction: column; gap: 0; }
     .project-item {
-      display: grid;
-      grid-template-columns: 1fr 2fr auto;
-      gap: 3rem;
-      padding: 3rem 0;
-      border-bottom: 1px solid var(--rule);
-      align-items: start;
-      transition: opacity 0.2s;
+        display: grid;
+        grid-template-columns: 220px 2fr auto;
+        gap: 3rem;
+        padding: 3rem 0;
+        border-bottom: 1px solid var(--rule);
+        align-items: start;
+        transition: opacity 0.2s;
     }
     .project-item:first-child { border-top: 1px solid var(--rule); }
     .project-item:hover { opacity: 0.75; }
@@ -429,13 +429,13 @@
       line-height: 1.3;
     }
     .project-visual {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
     }
     
     .graphical-abstract {
-        width: 180px;
+        width: 220px;
         height: auto;
         display: block;
         border: 1px solid var(--rule);
@@ -623,6 +623,7 @@
       .skill-card:nth-child(4), .skill-card:nth-child(5), .skill-card:nth-child(6) { border-bottom: 1px solid var(--rule); }
       .skill-card:nth-child(5), .skill-card:nth-child(6) { border-bottom: none; }
       .project-item { grid-template-columns: 1fr; gap: 1rem; }
+      .graphical-abstract { width: 100%; max-width: 500px;}
       .project-num { font-size: 1.5rem; }
       .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
       .cert-grid { grid-template-columns: 1fr; }
@@ -833,14 +834,18 @@
       <h2 class="section-title">Selected work</h2>
         <div class="projects-list fade-in">
 
-          <div class="project-item">
-               <div class="project-visual">
-                    <span class="project-num">01</span>
-                    <img src="images/cardio-transfer-x-graphical-abstract.webp"
-                         alt="Graphical abstract of CardioTransferX"
-                         class="graphical-abstract">
-                </div>
-            <div>
+      <div class="project-item">
+          <div class="project-visual">
+              <span class="project-num">01</span>
+      
+              <img
+                  src="images/cardio-transfer-x-graphical-abstract.webp"
+                  alt="Graphical abstract for CardioTransferX"
+                  class="graphical-abstract"
+              >
+          </div>
+      
+          <div>
               <h3 class="project-title">CardioTransferX</h3>
               <div class="project-tags">
                 <span class="tag">Transfer Learning</span>

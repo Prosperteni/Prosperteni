@@ -461,6 +461,8 @@
     }
     .project-link:hover { color: var(--ink); border-bottom-color: var(--ink); }
 
+    .project-links {display: flex; flex-direction: column; gap: 0.8rem; }
+
     /* ── CONTACT ── */
     .contact-grid {
       display: grid;
@@ -655,7 +657,7 @@
     <section id="home">
       <div class="hero-inner section-inner">
         <div class="hero-text">
-          <span class="hero-tag">AI · Computer Vision · Robotics</span>
+          <span class="hero-tag">AI · Computer Vision · Medical AI · Robotics</span>
           <h1 class="hero-name">Prosper<br><em>Ughakpoteni</em></h1>
           <p class="hero-desc">
             Undergraduate specialising in Artificial Intelligence and Computer Vision.
@@ -703,8 +705,8 @@
             </p>
             <div class="about-stats">
               <div>
-                <span class="stat-num">2</span>
-                <span class="stat-label">Research Projects</span>
+                <span class="stat-num">1</span>
+                <span class="stat-label">Published Paper</span>
               </div>
               <div>
                 <span class="stat-num">6+</span>
@@ -815,8 +817,8 @@
     <!-- PROJECTS -->
     <section id="projects">
       <div class="section-inner">
-        <span class="section-label">04 — Projects</span>
-        <h2 class="section-title">Selected work</h2>
+      <span class="section-label">04 — Research & Projects</span>
+      <h2 class="section-title">Selected work</h2>
         <div class="projects-list fade-in">
 
           <div class="project-item">
@@ -826,14 +828,30 @@
               <div class="project-tags">
                 <span class="tag">Transfer Learning</span>
                 <span class="tag">Explainable AI</span>
-                <span class="tag">PyTorch</span>
-                <span class="tag">SHAP</span>
+                <span class="tag">Research</span>
+                <span class="tag">Published</span>
+                <span class="tag">Medical Field</span>
               </div>
-              <p class="project-desc">A cross-dataset transfer learning framework for heart disease prediction. Fine-tunes models across multiple clinical datasets to reduce overfitting and improve generalisation. SHAP analysis provides clinically meaningful interpretability.</p>
+              <p class="project-desc">
+                A cross-cohort transfer learning framework for heart disease prediction,
+                combining stability-aware feature selection, training-only SMOTE, and SHAP
+                explainability to investigate generalisation across clinical cohorts.
+                Published in the Journal of Cardiovascular Translational Research, 2026.
+              </p>            
             </div>
-            <a href="https://github.com/Prosperteni/CardioTransferX" target="_blank" class="project-link">
-              GitHub &rarr;
-            </a>
+            <div class="project-links">
+              <a href="https://github.com/Prosperteni/CardioTransferX"
+                 target="_blank"
+                 class="project-link">
+                GitHub &rarr;
+              </a>
+            
+              <a href="https://link.springer.com/article/10.1007/s12265-026-10842-z"
+                 target="_blank"
+                 class="project-link">
+                Publication &rarr;
+              </a>
+            </div>
           </div>
 
           <div class="project-item">

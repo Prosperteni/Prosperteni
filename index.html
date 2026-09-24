@@ -428,6 +428,18 @@
       letter-spacing: -0.01em;
       line-height: 1.3;
     }
+    .project-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    }
+    
+    .graphical-abstract {
+        width: 180px;
+        height: auto;
+        display: block;
+        border: 1px solid var(--rule);
+    }
     .project-tags {
       display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.9rem;
     }
@@ -822,7 +834,12 @@
         <div class="projects-list fade-in">
 
           <div class="project-item">
-            <span class="project-num">01</span>
+               <div class="project-visual">
+                    <span class="project-num">01</span>
+                    <img src="images/cardio-transfer-x-graphical-abstract.webp"
+                         alt="Graphical abstract of CardioTransferX"
+                         class="graphical-abstract">
+                </div>
             <div>
               <h3 class="project-title">CardioTransferX</h3>
               <div class="project-tags">
